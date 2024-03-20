@@ -1,0 +1,17 @@
+<div>
+  <mat-form-field class="search-box">
+    <mat-label>Search products</mat-label>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selectProduct(productFormControl.value)">
+      @for (product of filteredProducts | async; track product) {
+        <mat-option [value]="product">{{ product }}</mat-option>
+      }
+    </mat-autocomplete>
+    <input type="text" placeholder="react" aria-label="Product" matInput [formControl]="productFormControl"
+      (keydown.enter)="selectProduct(productFormControl.value)" [matAutocomplete]="auto">
+    @if (productFormControl.valid) {
+      <button matSuffix mat-icon-button aria-label="Add" (click)="selectProduct(productFormControl.value)">
+        <mat-icon>add</mat-icon>
+      </button>
+    }
+  </mat-form-field>
+</div>

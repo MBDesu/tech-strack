@@ -9,81 +9,11 @@
     @if (loading) {
       <mat-spinner></mat-spinner>
     } @else if (products) {
-      <div>
-        <mat-form-field class="search-box">
-          <mat-label>Search products</mat-label>
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="addProduct(product.value)">
-            @for (product of filteredProducts | async; track product) {
-              <mat-option [value]="product">{{ product }}</mat-option>
-            }
-          </mat-autocomplete>
-          <input type="text"
-                placeholder="react"
-                aria-label="Product"
-                matInput
-                [formControl]="product"
-                (keydown.enter)="addProduct(product.value)"
-                [matAutocomplete]="auto">
-          @if (product.valid) {
-            <button matSuffix mat-icon-button aria-label="Add" (click)="addProduct(product.value)">
-              <mat-icon>add</mat-icon>
-            </button>
-          }
-        </mat-form-field>
-      </div>
+      <app-product-search [products]="products" (productSelected)="addProduct($event)"></app-product-search>
     }
     @for (product of selectedProducts; track product) {
       @if (selectedProductData[product]) {
-        <div class="data-table">
-          <mat-toolbar color="accent" class="table-title">
-            <div>{{ product[0].toUpperCase() + product.substring(1) }}</div>
-            <div><button mat-icon-button (click)="removeProduct(product)"><mat-icon>close</mat-icon></button></div>
-          </mat-toolbar>
-          <mat-table [dataSource]="selectedProductDataSources[product]" class="mat-elevation-z8">
-            <ng-container matColumnDef="cycle-cycle">
-              <th mat-header-cell *matHeaderCellDef>Release</th>
-              <td mat-cell *matCellDef="let cycle">{{cycle.cycle}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="cycle-release-date">
-              <th mat-header-cell *matHeaderCellDef>Release Date</th>
-              <td mat-cell *matCellDef="let cycle">{{formatDateOrBoolean(cycle.releaseDate)}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="cycle-eol">
-              <th mat-header-cell *matHeaderCellDef>Security Support</th>
-              <td mat-cell *matCellDef="let cycle">{{formatDateOrBoolean(cycle.eol)}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="cycle-latest">
-              <th mat-header-cell *matHeaderCellDef>Latest</th>
-              <td mat-cell *matCellDef="let cycle">{{cycle.latest}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="cycle-link">
-              <th mat-header-cell *matHeaderCellDef>URL</th>
-              <td mat-cell *matCellDef="let cycle">{{cycle.link}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="cycle-support">
-              <th mat-header-cell *matHeaderCellDef>Active Support</th>
-              <td mat-cell *matCellDef="let cycle">{{formatDateOrBoolean(cycle.support)}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="cycle-lts">
-              <th mat-header-cell *matHeaderCellDef>LTS</th>
-              <td mat-cell *matCellDef="let cycle">{{formatDateOrBoolean(cycle.lts) || ''}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="cycle-supported-java-versions">
-              <th mat-header-cell *matHeaderCellDef>Supported Java</th>
-              <td mat-cell *matCellDef="let cycle">{{cycle.supportedJavaVersions}}</td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="columnDefs"></tr>
-            <tr mat-row *matRowDef="let row; columns: columnDefs"></tr>
-          </mat-table>
-        </div><br />
+        <app-product-cycles [product]="product" [eolDetails]="selectedProductData[product]" (productRemoved)="removeProduct($event)"></app-product-cycles>
       }
     }
     <router-outlet></router-outlet>

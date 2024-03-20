@@ -35,7 +35,7 @@ export class EndOfLifeService {
   }
 
   private fetchAllProducts = (): Observable<string[]> => {
-    return this.http.get<string[]>(`${this.ENDOFLIFE_BASE_URL}/all.json`);
+    return this.http.get<string[]>(`${this.ENDOFLIFE_BASE_URL}all.json`);
   }
 
 }
