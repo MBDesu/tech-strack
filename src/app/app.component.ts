@@ -33,9 +33,9 @@ export class AppComponent implements OnInit {
   error = false;
   filteredProducts!: Observable<string[]>;
   loading = false;
+  products: string[] = [];
   selectedProducts: string[] = [];
   selectedProductData: { [key: string]: EndOfLifeDetails[] } = {};
-  products: string[] = [];
   title = 'tech-strack';
 
   constructor(
@@ -50,13 +50,19 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.selectedProducts = JSON.parse(localStorage.getItem('selectedProducts') || '[]');
     this.loading = true;
     this.endOfLifeService.onReady.subscribe((ready: boolean) => {
       if (ready) {
         this.products = this.endOfLifeService.products;
+        if (this.selectedProducts.length) {
+          this.selectedProducts.forEach((product: string) => {
+            this.endOfLifeService.getAllDetails(product).subscribe((endOfLifeDetails) => {
+              this.selectedProductData[product as string] = endOfLifeDetails;
+            });
+          });
+        }
       }
-      this.loading = false;
-    }, () => {
       this.loading = false;
     }, () => {
       this.loading = false;
@@ -65,9 +71,10 @@ export class AppComponent implements OnInit {
 
   addProduct(product: string | null): void {
     if (!this.selectedProducts.find((value) => value === product)) {
-      this.selectedProducts.push(product as string);
       this.loading = true;
       this.endOfLifeService.getAllDetails(product as string).subscribe((endOfLifeDetails) => {
+        this.selectedProducts.push(product as string);
+        localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts));
         this.selectedProductData[product as string] = endOfLifeDetails;
         this.loading = false;
       });
@@ -76,6 +83,7 @@ export class AppComponent implements OnInit {
 
   removeProduct(product: string): void {
     this.selectedProducts = this.selectedProducts.filter((selectedProduct) => selectedProduct !== product);
+    localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts));
   }
 
   isSupported = (support: string | boolean): boolean => {

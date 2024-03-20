@@ -2,10 +2,10 @@ import { CommonModule, formatDate } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { EndOfLifeDetails } from '../../services/end-of-life/models/end-of-life-api';
-import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-product-cycles',
@@ -24,16 +24,26 @@ export class ProductCyclesComponent implements OnInit {
 
   @Input({ required: true }) product!: string;
   @Input({ required: true }) eolDetails!: EndOfLifeDetails[];
-  productDataSource!: MatTableDataSource<EndOfLifeDetails, MatPaginator>;
   @Output() productRemoved = new EventEmitter<string>();
-  columnDefs = ['cycle-cycle', 'cycle-release-date', 'cycle-support', 'cycle-lts', 'cycle-eol', 'cycle-latest'];
+
+  productDataSource!: MatTableDataSource<EndOfLifeDetails, MatPaginator>;
+  defaultColumns = ['cycle-cycle', 'cycle-release-date', 'cycle-support', 'cycle-lts',  'cycle-eol', 'cycle-extended-support', 'cycle-supported-java-versions', 'cycle-latest'];
+  columnDefs: string[] = [];
 
   ngOnInit(): void {
     this.productDataSource = new MatTableDataSource<EndOfLifeDetails>(this.eolDetails);
-    if (this.eolDetails && this.eolDetails[0].supportedJavaVersions) {
-      this.columnDefs.push(...['cycle-supported-java-versions', ...this.columnDefs.splice(this.columnDefs.length - 1, 1)]);
+    if (this.eolDetails) {
+      const properties = Object.getOwnPropertyNames(this.eolDetails[0]);
+      console.log(properties);
+      this.defaultColumns.forEach((column: string) => {
+        if (properties.find((property) => `cycle-${this.kebabize(property)}` === column)) {
+          this.columnDefs.push(...[column]);
+        }
+      });
     }
   }
+
+  private kebabize = (str: string) => str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
 
   removeProduct(): void {
     this.productRemoved.emit(this.product);
