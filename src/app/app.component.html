@@ -9,11 +9,16 @@
     @if (loading) {
       <mat-spinner></mat-spinner>
     } @else if (products) {
-      <app-product-search [products]="products" (productSelected)="addProduct($event)"></app-product-search>
+      <app-product-search
+        [products]="products"
+        [(selectedProducts)]="selectedProducts"
+        (productSelected)="addProduct($event)"
+        (productRemoved)="removeProduct($event)"
+      />
     }
     @for (product of selectedProducts; track product) {
       @if (selectedProductData[product]) {
-        <app-product-cycles [product]="product" [eolDetails]="selectedProductData[product]" (productRemoved)="removeProduct($event)"></app-product-cycles>
+        <app-product-cycles [product]="product" [eolDetails]="selectedProductData[product]" (productRemoved)="removeProduct($event)" />
       }
     }
     <router-outlet></router-outlet>

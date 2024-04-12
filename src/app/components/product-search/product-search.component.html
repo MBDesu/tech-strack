@@ -1,13 +1,33 @@
 <div>
   <mat-form-field class="search-box">
     <mat-label>Search products</mat-label>
+    <mat-chip-grid #chipGrid>
+      @for (product of selectedProducts; track product) {
+        <mat-chip-row (removed)="removeProduct(product)">
+          {{ product }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      }
+    </mat-chip-grid>
+    <input
+      type="text"
+      placeholder="react"
+      aria-label="Product"
+      matInput
+      [formControl]="productFormControl"
+      (keydown.enter)="selectProduct(productFormControl.value)"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipGrid"
+      [matChipInputSeparatorKeyCodes]="separatorKeyCodes"
+      (matChipInputTokenEnd)="selectProduct(($event.value || '').trim())"
+    />
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selectProduct(productFormControl.value)">
       @for (product of filteredProducts | async; track product) {
         <mat-option [value]="product">{{ product }}</mat-option>
       }
     </mat-autocomplete>
-    <input type="text" placeholder="react" aria-label="Product" matInput [formControl]="productFormControl"
-      (keydown.enter)="selectProduct(productFormControl.value)" [matAutocomplete]="auto">
     @if (productFormControl.valid) {
       <button matSuffix mat-icon-button aria-label="Add" (click)="selectProduct(productFormControl.value)">
         <mat-icon>add</mat-icon>

@@ -6,8 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { Observable, map, startWith } from 'rxjs';
+import { map, Observable, startWith } from 'rxjs';
 import { CustomValidators } from '../../utils/custom-validators';
+import { MatChipsModule } from '@angular/material/chips';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-product-search',
@@ -17,6 +19,7 @@ import { CustomValidators } from '../../utils/custom-validators';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatButtonModule,
+    MatChipsModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -27,9 +30,13 @@ import { CustomValidators } from '../../utils/custom-validators';
 export class ProductSearchComponent implements OnInit {
 
   @Input({ required: true }) products!: string[];
+  @Input({ required: true }) selectedProducts!: string[];
+  @Output() selectedProductsChange = new EventEmitter<string[]>();
   @Output() productSelected = new EventEmitter<string | null>();
+  @Output() productRemoved = new EventEmitter<string | null>();
 
   filteredProducts!: Observable<string[]>;
+  separatorKeyCodes = [ENTER, COMMA];
   productFormControl = new FormControl('', Validators.compose([
     Validators.required,
   ]));
@@ -50,11 +57,25 @@ export class ProductSearchComponent implements OnInit {
     return this.products;
   };
 
-  selectProduct = (product: string | null): void => {
+  protected selectProduct = (product: string | null): void => {
     if (this.productFormControl.valid) {
-      this.productSelected.emit(product);
+      if (product && !this.selectedProducts.some((existingProduct) => {
+         return product === existingProduct;
+        })) {
+        console.log(product);
+        this.selectedProducts.push(product);
+        this.selectedProductsChange.emit(this.selectedProducts);
+        this.productSelected.emit(product);
+      }
       this.productFormControl.reset('');
     }
+  };
+
+  protected removeProduct = (product: string) => {
+    this.selectedProducts =
+      this.selectedProducts.filter((selectedProduct) => selectedProduct !== product);
+    this.selectedProductsChange.emit(this.selectedProducts);
+    this.productRemoved.emit(product);
   };
 
 }

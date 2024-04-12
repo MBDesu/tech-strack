@@ -22,8 +22,8 @@ import { EndOfLifeDetails } from '../../services/end-of-life/models/end-of-life-
 })
 export class ProductCyclesComponent implements OnInit {
 
-  @Input({ required: true }) product!: string;
   @Input({ required: true }) eolDetails!: EndOfLifeDetails[];
+  @Input({ required: true }) product!: string;
   @Output() productRemoved = new EventEmitter<string>();
 
   productDataSource!: MatTableDataSource<EndOfLifeDetails, MatPaginator>;
@@ -51,7 +51,7 @@ export class ProductCyclesComponent implements OnInit {
 
   formatDateOrBoolean = (date: string | boolean): string => {
     if (typeof date === 'boolean') return date ? 'Yes' : 'No';
-    return date ? 
+    return date ?
         formatDate(date, 'longDate', Intl.NumberFormat().resolvedOptions().locale)
         : '';
   };

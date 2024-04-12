@@ -31,7 +31,6 @@ import { EndOfLifeDetails } from './services/end-of-life/models/end-of-life-api'
 export class AppComponent implements OnInit {
 
   error = false;
-  filteredProducts!: Observable<string[]>;
   loading = false;
   products: string[] = [];
   selectedProducts: string[] = [];
@@ -70,26 +69,19 @@ export class AppComponent implements OnInit {
   }
 
   addProduct(product: string | null): void {
-    if (!this.selectedProducts.find((value) => value === product)) {
-      this.loading = true;
-      this.endOfLifeService.getAllDetails(product as string).subscribe((endOfLifeDetails) => {
-        this.selectedProducts.push(product as string);
-        localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts));
-        this.selectedProductData[product as string] = endOfLifeDetails;
-        this.loading = false;
-      });
+    this.loading = true;
+    localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts));
+    this.endOfLifeService.getAllDetails(product as string).subscribe((endOfLifeDetails) => {
+      this.selectedProductData[product as string] = endOfLifeDetails;
+      this.loading = false;
+    });
+  }
+
+  removeProduct(product: string | null): void {
+    if (product) {
+      this.selectedProducts = this.selectedProducts.filter((selectedProduct) => product !== selectedProduct);
+      localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts));
     }
   }
-
-  removeProduct(product: string): void {
-    this.selectedProducts = this.selectedProducts.filter((selectedProduct) => selectedProduct !== product);
-    localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts));
-  }
-
-  isSupported = (support: string | boolean): boolean => {
-    if (typeof support === 'boolean') return support;
-    const endOfSupportDate = new Date(support);
-    return endOfSupportDate > new Date();
-  };
 
 }
