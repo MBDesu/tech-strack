@@ -1,10 +1,14 @@
 
-.is-dead {
-  background-color: red;
+.is-past {
+  background-color: rgba(123, 0, 0, 0.5);
 }
 
-.is-lts {
-  background-color: goldenrod;
+.is-soon {
+  background-color: rgba(123, 123, 0, 0.5);
+}
+
+.is-good {
+  background-color: rgba(0, 123, 0, 0.5);
 }
 
 .mat-column-cycle-cycle {
@@ -59,6 +63,6 @@
 }
 
 .data-table {
-  min-width: 939px; 
+  min-width: 939px;
   max-width: 1024px;
 }

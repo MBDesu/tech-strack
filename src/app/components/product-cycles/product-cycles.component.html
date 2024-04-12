@@ -11,12 +11,12 @@
 
     <ng-container matColumnDef="cycle-release-date">
       <th mat-header-cell *matHeaderCellDef>Release Date</th>
-      <td mat-cell *matCellDef="let cycle">{{formatDateOrBoolean(cycle.releaseDate)}}</td>
+      <td mat-cell *matCellDef="let cycle">{{formatTimeAgo(cycle.releaseDate)}}</td>
     </ng-container>
 
     <ng-container matColumnDef="cycle-eol">
       <th mat-header-cell *matHeaderCellDef>Security Support</th>
-      <td mat-cell *matCellDef="let cycle">{{formatDateOrBoolean(cycle.eol)}}</td>
+      <td mat-cell *matCellDef="let cycle" [class]="resolveDateClass(cycle.eol)">{{formatTimeAgo(cycle.eol, true)}}</td>
     </ng-container>
 
     <ng-container matColumnDef="cycle-latest">
@@ -31,17 +31,17 @@
 
     <ng-container matColumnDef="cycle-support">
       <th mat-header-cell *matHeaderCellDef>Active Support</th>
-      <td mat-cell *matCellDef="let cycle">{{formatDateOrBoolean(cycle.support)}}</td>
+      <td mat-cell *matCellDef="let cycle" [class]="resolveDateClass(cycle.support)">{{formatTimeAgo(cycle.support, true)}}</td>
     </ng-container>
 
     <ng-container matColumnDef="cycle-lts">
       <th mat-header-cell *matHeaderCellDef>LTS</th>
-      <td mat-cell *matCellDef="let cycle">{{formatDateOrBoolean(cycle.lts) || ''}}</td>
+      <td mat-cell *matCellDef="let cycle" [class]="resolveDateClass(cycle.lts)">{{formatTimeAgo(cycle.lts, true) || ''}}</td>
     </ng-container>
 
     <ng-container matColumnDef="cycle-extended-support">
       <th mat-header-cell *matHeaderCellDef>Extended Support</th>
-      <td mat-cell *matCellDef="let cycle">{{formatDateOrBoolean(cycle.extendedSupport) || ''}}</td>
+      <td mat-cell *matCellDef="let cycle" [class]="resolveDateClass(cycle.extendedSupport)">{{formatTimeAgo(cycle.extendedSupport, true) || ''}}</td>
     </ng-container>
 
     <ng-container matColumnDef="cycle-supported-java-versions">
