@@ -13,12 +13,14 @@
     @if (loading) {
       <mat-spinner></mat-spinner>
     } @else if (products) {
-      <app-product-search
-        [products]="products"
-        [(selectedProducts)]="selectedProducts"
-        (productSelected)="addProduct($event)"
-        (productRemoved)="removeProduct($event)"
-      />
+      <div class="app-search-box">
+        <app-product-search
+          [products]="products"
+          [(selectedProducts)]="selectedProducts"
+          (productSelected)="addProduct($event)"
+          (productRemoved)="removeProduct($event)"
+        />
+      </div>
     }
     @for (product of selectedProducts; track product) {
       @if (selectedProductData[product]) {
