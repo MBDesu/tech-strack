@@ -11,4 +11,5 @@ export interface EndOfLifeDetails {
   discontinued: string | boolean;
   extendedSupport?: string | boolean;
   supportedJavaVersions?: string;
+  supportedJakartaEEVersions?: string;
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,13 +27,14 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
   templateUrl: './product-search.component.html',
   styleUrl: './product-search.component.scss'
 })
-export class ProductSearchComponent implements OnInit {
+export class ProductSearchComponent implements OnInit, AfterViewInit {
 
   @Input({ required: true }) products!: string[];
   @Input({ required: true }) selectedProducts!: string[];
   @Output() selectedProductsChange = new EventEmitter<string[]>();
   @Output() productSelected = new EventEmitter<string | null>();
   @Output() productRemoved = new EventEmitter<string | null>();
+  @ViewChild('productSearchInput') productSearchInput!: ElementRef<HTMLInputElement>;
 
   filteredProducts!: Observable<string[]>;
   separatorKeyCodes = [ENTER, COMMA];
@@ -49,6 +50,10 @@ export class ProductSearchComponent implements OnInit {
     this.productFormControl.addValidators(CustomValidators.isAutocompleteValue(this.products));
   }
 
+  ngAfterViewInit(): void {
+    this.productSearchInput?.nativeElement.focus();
+  }
+
   private _filter = (value: string | null): string[] => {
     if (value) {
       const filterValue = value.toLowerCase();
@@ -62,7 +67,6 @@ export class ProductSearchComponent implements OnInit {
       if (product && !this.selectedProducts.some((existingProduct) => {
          return product === existingProduct;
         })) {
-        console.log(product);
         this.selectedProducts.push(product);
         this.selectedProductsChange.emit(this.selectedProducts);
         this.productSelected.emit(product);
@@ -76,6 +80,7 @@ export class ProductSearchComponent implements OnInit {
       this.selectedProducts.filter((selectedProduct) => selectedProduct !== product);
     this.selectedProductsChange.emit(this.selectedProducts);
     this.productRemoved.emit(product);
+    this.productSearchInput?.nativeElement.focus();
   };
 
 }

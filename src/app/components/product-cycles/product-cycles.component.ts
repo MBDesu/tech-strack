@@ -2,12 +2,11 @@ import { CommonModule, formatDate } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { EndOfLifeDetails } from '../../services/end-of-life/models/end-of-life-api';
 import moment from 'moment';
-import momentApi from 'moment/moment';
+import { productCycleColumnMapping, ProductDefinition } from '../../common/models/product-cycle-column-mapping';
 
 @Component({
   selector: 'app-product-cycles',
@@ -28,27 +27,37 @@ export class ProductCyclesComponent implements OnInit {
   @Input({ required: true }) product!: string;
   @Output() productRemoved = new EventEmitter<string>();
 
-  defaultColumns = ['cycle-cycle', 'cycle-release-date', 'cycle-support', 'cycle-lts',  'cycle-eol', 'cycle-extended-support', 'cycle-supported-java-versions', 'cycle-latest'];
   columnDefs: string[] = [];
-  productDataSource!: MatTableDataSource<EndOfLifeDetails, MatPaginator>;
-  momentApi = moment;
+  defaultColumns = [
+    'cycle-cycle', 'cycle-release-date',
+    'cycle-support', 'cycle-lts',
+    'cycle-eol', 'cycle-extended-support',
+    'cycle-supported-java-versions', 'cycle-supported-jakarta-ee-versions',
+    'cycle-latest',
+  ];
+  productDataSource!: MatTableDataSource<EndOfLifeDetails>;
+  productMapping: ProductDefinition | undefined;
   today = new Date();
 
   ngOnInit(): void {
-    moment.updateLocale('en', {
-      relativeTime: {
-
-      },
-    });
     this.productDataSource = new MatTableDataSource<EndOfLifeDetails>(this.eolDetails);
     if (this.eolDetails) {
-      const properties = Object.getOwnPropertyNames(this.eolDetails[0]);
-      console.log(properties);
-      this.defaultColumns.forEach((column: string) => {
-        if (properties.find((property) => `cycle-${this.kebabize(property)}` === column)) {
-          this.columnDefs.push(...[column]);
-        }
-      });
+      this.productMapping = productCycleColumnMapping[this.product];
+      if (this.productMapping) {
+        const properties = Object.keys(this.productMapping['columns']);
+        this.defaultColumns.forEach((column: string) => {
+          if (properties.find((property) => property === column)) {
+            this.columnDefs.push(...[column]);
+          }
+        });
+      } else {
+        const properties = Object.getOwnPropertyNames(this.eolDetails[0]);
+        this.defaultColumns.forEach((column: string) => {
+          if (properties.find((property) => `cycle-${this.kebabize(property)}` === column)) {
+            this.columnDefs.push(...[column]);
+          }
+        });
+      }
     }
   }
 
@@ -58,31 +67,47 @@ export class ProductCyclesComponent implements OnInit {
     this.productRemoved.emit(this.product);
   }
 
-  formatTimeAgo = (date: string | boolean, prefix?: boolean): string => {
-    if (typeof date === 'boolean') return this.formatDateOrBoolean(date);
+  formatTimeAgo = (date: string | boolean, prefix?: boolean, unavailable?: boolean, invert?: boolean): string => {
+    if (typeof date === 'boolean') return this.formatDateOrBoolean(date, unavailable, invert);
 
     const momentDate = moment(date);
     const diff = momentDate.diff(this.today, "d");
-    const dateString = `${momentDate.fromNow()} (${this.formatDateOrBoolean(date)})`;
+    const dateString = `${momentDate.fromNow()} (${this.formatDateOrBoolean(date, unavailable, invert)})`;
 
     if (diff < 0) {
       return prefix ? `Ended ${dateString}` : dateString;
     } else if (diff > 0) {
       return prefix ? `Ends ${dateString}` : dateString;
     }
-    return prefix ? 'Ends today' : this.formatDateOrBoolean(date);
+    return prefix ? 'Ends today' : this.formatDateOrBoolean(date, unavailable, invert);
 
   };
 
-  formatDateOrBoolean = (date: string | boolean): string => {
-    if (typeof date === 'boolean') return date ? 'Yes' : 'No';
+  formatDateOrBoolean = (date: string | boolean, unavailable?: boolean, invert? : boolean): string => {
+    if (typeof date === 'boolean') {
+      if (!unavailable) {
+        if (!invert) {
+          return date ? 'No' : 'Yes';
+        }
+        return date ? 'Yes' : 'No'
+      }
+      return date ? 'Yes' : 'Unavailable';
+    }
     return date ?
-        formatDate(date, 'longDate', Intl.NumberFormat().resolvedOptions().locale)
+        formatDate(date, 'd MMM y', Intl.NumberFormat().resolvedOptions().locale)
         : '';
   };
 
-  resolveDateClass(date: string | boolean): string {
-    if (typeof date !== 'string') return '';
+  resolveDateClass(date: string | boolean, unavailable?: boolean, invert?: boolean): string {
+    if (typeof date === 'boolean') {
+      if (!unavailable) {
+        if (!invert) {
+          return date ? 'is-past' : 'is-good';
+        }
+        return date ? 'is-good' : 'is-past'
+      }
+      return date ? 'is-good' : 'is-unavailable';
+    }
     const momentDate = moment(date);
     if (momentDate.isBefore(this.today)) return 'is-past';
     if (momentDate.isAfter(this.today)) {
