@@ -1,12 +1,12 @@
 <div class="data-table">
   <mat-toolbar color="accent" class="table-title">
-    <div><span>{{ productMapping?.['name'] || product[0].toUpperCase() + product.substring(1) }}</span></div>
+    <div>{{ productMapping?.['name'] || product[0].toUpperCase() + product.substring(1) }}</div>
     <div><button mat-icon-button (click)="removeProduct()"><mat-icon>close</mat-icon></button></div>
   </mat-toolbar>
   <mat-table [dataSource]="productDataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="cycle-cycle">
       <th mat-header-cell *matHeaderCellDef>{{ productMapping?.['columns']?.['cycle-cycle']?.['header'] || 'Release' }}</th>
-      <td mat-cell *matCellDef="let cycle">{{cycle.cycle}}</td>
+      <td mat-cell *matCellDef="let cycle">{{cycle.cycle}}{{cycle.codename ? ' (' + cycle.codename + ')' : '' }}</td>
     </ng-container>
 
     <ng-container matColumnDef="cycle-release-date">
@@ -76,7 +76,7 @@
       <td mat-cell *matCellDef="let cycle">{{cycle.supportedJakartaEEVersions}}</td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="columnDefs"></tr>
+    <tr mat-header-row *matHeaderRowDef="columnDefs; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: columnDefs"></tr>
   </mat-table>
 </div>

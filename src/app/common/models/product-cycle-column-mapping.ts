@@ -281,6 +281,29 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'spring-boot': {
+    name: 'Spring Boot',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'OSS Support',
+      },
+      'cycle-extended-support': {
+        header: 'Commercial Support',
+      },
+      'cycle-supported-java-versions': {
+        header: 'JDK',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      }
+    }
+  },
   'spring-framework': {
     name: 'Spring Framework',
     columns: {

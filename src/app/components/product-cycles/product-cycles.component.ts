@@ -117,4 +117,11 @@ export class ProductCyclesComponent implements OnInit {
     return 'is-soon';
   }
 
+  isMaintained(details: EndOfLifeDetails): boolean {
+    const propertiesToExamine = Object.getOwnPropertyNames(details).filter((prop) => {
+      prop === ''
+    });
+    return false;
+  }
+
 }
