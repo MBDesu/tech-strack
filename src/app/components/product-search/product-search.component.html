@@ -4,7 +4,7 @@
     <mat-chip-grid #chipGrid>
       @for (product of selectedProducts; track product) {
         <mat-chip-row (removed)="removeProduct(product)">
-          {{ product }}
+          {{ productCycleColumnMapping[product]?.name || product }}
           <button matChipRemove>
             <mat-icon>cancel</mat-icon>
           </button>
@@ -26,7 +26,7 @@
     />
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selectProduct(productFormControl.value)">
       @for (product of filteredProducts | async; track product) {
-        <mat-option [value]="product">{{ product }}</mat-option>
+        <mat-option [value]="product">{{ productCycleColumnMapping[product]?.name || product }}</mat-option>
       }
     </mat-autocomplete>
     @if (productFormControl.valid) {

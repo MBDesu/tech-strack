@@ -9,9 +9,19 @@
       <td mat-cell *matCellDef="let cycle">{{cycle.cycle}}{{cycle.codename ? ' (' + cycle.codename + ')' : '' }}</td>
     </ng-container>
 
+    <ng-container matColumnDef="cycle-supported-android-versions">
+      <th mat-header-cell *matHeaderCellDef>{{ productMapping?.['columns']?.['cycle-supported-android-versions']?.['header'] }}</th>
+      <td mat-cell *matCellDef="let cycle">{{cycle.supportedAndroidVersions}}</td>
+    </ng-container>
+
     <ng-container matColumnDef="cycle-release-date">
       <th mat-header-cell *matHeaderCellDef>{{ productMapping?.['columns']?.['cycle-release-date']?.['header'] || 'Released' }}</th>
       <td mat-cell *matCellDef="let cycle">{{formatTimeAgo(cycle.releaseDate)}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cycle-discontinued">
+      <th mat-header-cell *matHeaderCellDef>{{ productMapping?.columns?.['cycle-discontinued']?.header || 'Discontinued' }}</th>
+      <td mat-cell *matCellDef="let cycle" [class]="resolveDateClass(cycle.discontinued)">{{formatTimeAgo(cycle.discontinued, false, false, false, productMapping?.columns?.['cycle-discontinued']?.altGoodText || '', productMapping?.columns?.['cycle-discontinued']?.altBadText || '')}}</td>
     </ng-container>
 
     <ng-container matColumnDef="cycle-eol">
@@ -36,7 +46,7 @@
 
     <ng-container matColumnDef="cycle-support">
       <th mat-header-cell *matHeaderCellDef>{{ productMapping?.['columns']?.['cycle-support']?.['header'] || 'Support' }}</th>
-      <td mat-cell *matCellDef="let cycle" [class]="resolveDateClass(cycle.support)">{{formatTimeAgo(cycle.support, true)}}</td>
+      <td mat-cell *matCellDef="let cycle" [class]="resolveDateClass(cycle.support, false, productMapping?.['columns']?.['cycle-support']?.['invert'] || false)">{{formatTimeAgo(cycle.support, true, false, productMapping?.['columns']?.['cycle-support']?.['invert'] || false)}}</td>
     </ng-container>
 
     <ng-container matColumnDef="cycle-lts">
@@ -80,4 +90,32 @@
     <tr mat-row *matRowDef="let row; columns: columnDefs"></tr>
   </mat-table>
 </div>
+@if (productMapping?.auxTable) {
+  <div class="data-table">
+    <mat-table [dataSource]="productDataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="cycle-aux-cycle">
+        <th mat-header-cell *matHeaderCellDef>Release</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.cycle}}{{cycle.codename ? ' (' + cycle.codename + ')' : '' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-angular-versions">
+        <th mat-header-cell *matHeaderCellDef>Angular Versions</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.minAngularVersion}} - {{cycle.maxAngularVersion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-react-versions">
+        <th mat-header-cell *matHeaderCellDef>React Versions</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.supportedReactVersions}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-vue-versions">
+        <th mat-header-cell *matHeaderCellDef>Vue Versions</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.supportedVueVersions}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="auxColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let rows; columns: auxColumns"></tr>
+    </mat-table>
+  </div>
+}
 <br />

@@ -10,6 +10,7 @@ import { map, Observable, startWith } from 'rxjs';
 import { CustomValidators } from '../../utils/custom-validators';
 import { MatChipsModule } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { productCycleColumnMapping } from '../../common/models/product-cycle-column-mapping';
 
 @Component({
   selector: 'app-product-search',
@@ -34,11 +35,11 @@ export class ProductSearchComponent implements OnInit, AfterViewInit {
   @Output() selectedProductsChange = new EventEmitter<string[]>();
   @Output() productSelected = new EventEmitter<string | null>();
   @Output() productRemoved = new EventEmitter<string | null>();
-  @ViewChild('productSearchInput') productSearchInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('productSearchInput') protected productSearchInput!: ElementRef<HTMLInputElement>;
 
-  filteredProducts!: Observable<string[]>;
-  separatorKeyCodes = [ENTER, COMMA];
-  productFormControl = new FormControl('', Validators.compose([
+  protected filteredProducts!: Observable<string[]>;
+  protected separatorKeyCodes = [ENTER, COMMA];
+  protected productFormControl = new FormControl('', Validators.compose([
     Validators.required,
   ]));
 
@@ -57,7 +58,9 @@ export class ProductSearchComponent implements OnInit, AfterViewInit {
   private _filter = (value: string | null): string[] => {
     if (value) {
       const filterValue = value.toLowerCase();
-      return this.products.filter(option => option.toLowerCase().includes(filterValue));
+      return this.products.filter(option =>
+        option.toLowerCase().includes(filterValue.toLowerCase()) ||
+        productCycleColumnMapping[option]?.name.toLowerCase().includes(filterValue.toLowerCase()));
     }
     return this.products;
   };
@@ -83,4 +86,5 @@ export class ProductSearchComponent implements OnInit, AfterViewInit {
     this.productSearchInput?.nativeElement.focus();
   };
 
+  protected readonly productCycleColumnMapping = productCycleColumnMapping;
 }

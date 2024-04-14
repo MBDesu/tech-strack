@@ -29,12 +29,19 @@ export class ProductCyclesComponent implements OnInit {
 
   columnDefs: string[] = [];
   defaultColumns = [
-    'cycle-cycle', 'cycle-release-date',
-    'cycle-support', 'cycle-lts',
-    'cycle-eol', 'cycle-extended-support',
-    'cycle-supported-java-versions', 'cycle-supported-jakarta-ee-versions',
+    'cycle-cycle',
+    'cycle-supported-android-versions',
+    'cycle-release-date',
+    'cycle-discontinued',
+    'cycle-support',
+    'cycle-lts',
+    'cycle-eol',
+    'cycle-extended-support',
+    'cycle-supported-java-versions',
+    'cycle-supported-jakarta-ee-versions',
     'cycle-latest',
   ];
+  auxColumns: string[] = [];
   productDataSource!: MatTableDataSource<EndOfLifeDetails>;
   productMapping: ProductDefinition | undefined;
   today = new Date();
@@ -50,25 +57,31 @@ export class ProductCyclesComponent implements OnInit {
             this.columnDefs.push(...[column]);
           }
         });
+        if (this.productMapping.auxTable) {
+          Object.keys(this.productMapping.auxTable).forEach((column) => {
+            this.auxColumns.push(...[column]);
+          });
+        }
       } else {
         const properties = Object.getOwnPropertyNames(this.eolDetails[0]);
         this.defaultColumns.forEach((column: string) => {
-          if (properties.find((property) => `cycle-${this.kebabize(property)}` === column)) {
+          if (properties.find((property) => `cycle-${this.makeKebab(property)}` === column)) {
             this.columnDefs.push(...[column]);
           }
         });
       }
+      console.log(this.auxColumns);
     }
   }
 
-  private kebabize = (str: string) => str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
+  private makeKebab = (str: string) => str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
 
   removeProduct(): void {
     this.productRemoved.emit(this.product);
   }
 
-  formatTimeAgo = (date: string | boolean, prefix?: boolean, unavailable?: boolean, invert?: boolean): string => {
-    if (typeof date === 'boolean') return this.formatDateOrBoolean(date, unavailable, invert);
+  formatTimeAgo = (date: string | boolean, prefix?: boolean, unavailable?: boolean, invert?: boolean, goodText = 'Yes', badText = 'No'): string => {
+    if (typeof date === 'boolean') return this.formatDateOrBoolean(date, unavailable, invert, goodText, badText);
 
     const momentDate = moment(date);
     const diff = momentDate.diff(this.today, "d");
@@ -83,15 +96,15 @@ export class ProductCyclesComponent implements OnInit {
 
   };
 
-  formatDateOrBoolean = (date: string | boolean, unavailable?: boolean, invert? : boolean): string => {
+  formatDateOrBoolean = (date: string | boolean, unavailable?: boolean, invert?: boolean, goodText = 'Yes', badText = 'No'): string => {
     if (typeof date === 'boolean') {
       if (!unavailable) {
         if (!invert) {
-          return date ? 'No' : 'Yes';
+          return date ? badText: goodText;
         }
-        return date ? 'Yes' : 'No'
+        return date ? goodText : badText;
       }
-      return date ? 'Yes' : 'Unavailable';
+      return date ? goodText : 'Unavailable';
     }
     return date ?
         formatDate(date, 'd MMM y', Intl.NumberFormat().resolvedOptions().locale)
@@ -115,13 +128,6 @@ export class ProductCyclesComponent implements OnInit {
       if (diffMonths > 3) return 'is-good';
     }
     return 'is-soon';
-  }
-
-  isMaintained(details: EndOfLifeDetails): boolean {
-    const propertiesToExamine = Object.getOwnPropertyNames(details).filter((prop) => {
-      prop === ''
-    });
-    return false;
   }
 
 }
