@@ -1166,6 +1166,20 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'cortex-xdr': {
+    name: 'Palo Alto Networks Cortex XDR Agent',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+    },
+  },
   'cos': {
     name: 'Google Container-Optimized OS (COS)',
     columns: {
@@ -1568,6 +1582,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'esxi': {
+    name: 'VMware ESXi',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'General Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -3591,6 +3622,145 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'openssl': {
+    name: 'OpenSSL',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Supported',
+      },
+      'cycle-extended-support': {
+        header: 'Premium Support',
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'opensuse': {
+    name: 'openSUSE',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'End of Life',
+      },
+    },
+  },
+  'opentofu': {
+    name: 'OpenTofu',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'openwrt': {
+    name: 'OpenWrt',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'openzfs': {
+    name: 'OpenZFS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Critical Bug Fixes',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'opnsense': {
+    name: 'OPNsense',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'oracle-apex': {
+    name: 'Oracle APEX',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
+  'oracle-database': {
+    name: 'Oracle Database',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Premier Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Support',
+        unavailable: true,
+      },
+    },
+  },
   'oracle-jdk': {
     name: 'Oracle JDK',
     columns: {
@@ -3612,6 +3782,152 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'oracle-linux': {
+    name: 'Oracle Linux',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Basic/Premier Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Support',
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'oracle-solaris': {
+    name: 'Oracle Solaris',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Premier Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Support',
+        unavailable: true,
+      },
+    },
+  },
+  'ovirt': {
+    name: 'oVirt',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'pangp': {
+    name: 'Palo Alto Networks GlobalProtect App',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'End-of-Life Date',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'panos': {
+    name: 'Palo Alto Networks PAN-OS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'End-of-Life Date',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'pci-dss': {
+    name: 'PCI-DSS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Acceptance',
+      },
+    },
+  },
+  'perl': {
+    name: 'Perl',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Critical Security Patches',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'photon': {
+    name: 'VMware Photon',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-kernel-version': {
+        header: 'Kernel Version',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
   'php': {
     name: 'PHP',
     columns: {
@@ -3623,6 +3939,48 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-support': {
         header: 'Active Support',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'phpbb': {
+    name: 'phpBB',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'phpmyadmin': {
+    name: 'phpMyAdmin',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
       },
       'cycle-eol': {
         header: 'Security Support',
@@ -3657,6 +4015,54 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     }
   },
+  'plesk': {
+    name: 'Plesk',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'pop-os': {
+    name: 'Pop!_OS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'General Support',
+      },
+    },
+  },
+  'postfix': {
+    name: 'Postfix',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'postgresql': {
     name: 'PostgreSQL',
     columns: {
@@ -3674,6 +4080,20 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'postmarketos': {
+    name: 'postmarketOS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
   'powershell': {
     name: 'Microsoft PowerShell',
     columns: {
@@ -3685,6 +4105,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Support Status',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'prometheus': {
+    name: 'Prometheus',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -3712,6 +4149,40 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'proxmox-ve': {
+    name: 'Proxmox VE',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'puppet': {
+    name: 'Puppet',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Supported',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'python': {
     name: 'Python',
     columns: {
@@ -3727,6 +4198,69 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'qt': {
+    name: 'Qt',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'OSS Support',
+      },
+      'cycle-extended-support': {
+        header: 'Commercial Support',
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'quarkus-framework': {
+    name: 'Quarkus',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support',
+      },
+      'cycle-extended-support': {
+        header: 'RHBQ',
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'quasar': {
+    name: 'Quasar',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'LTS Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -3770,6 +4304,41 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'rancher': {
+    name: 'Rancher',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'General Availability',
+      },
+      'cycle-support': {
+        header: 'Full Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Limited Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'raspberry-pi': {
+    name: 'Raspberry Pi',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-discontinued': {
+        header: 'Discontinued',
+      },
+    },
+  },
   'react': {
     name: 'React',
     columns: {
@@ -3802,6 +4371,94 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'red-hat-openshift': {
+    name: 'Red Hat OpenShift',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Full Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Maintenance Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Update Support',
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'redhat-build-of-openjdk': {
+    name: 'Red Hat Build of OpenJDK',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'redhat-jboss-eap': {
+    name: 'Red Hat JBoss Enterprise Application Platform',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Full Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Maintenance Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Support',
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'redhat-satellite': {
+    name: 'Red Hat Satellite',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'General Availability',
+      },
+      'cycle-support': {
+        header: 'Full Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Maintenance Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'redis': {
     name: 'Redis',
     columns: {
@@ -3814,6 +4471,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-support': {
         header: 'Active Support',
         invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'redmine': {
+    name: 'Redmine',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
       },
       'cycle-eol': {
         header: 'Security Support',
@@ -3840,6 +4514,118 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-extended-support': {
         header: 'Extended Life Cycle Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'robo': {
+    name: 'Robo',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-supported-php-versions': {
+        header: 'PHP Versions',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'rocket-chat': {
+    name: 'Rocket.Chat',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'rocky-linux': {
+    name: 'Rocky Linux',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'ros': {
+    name: 'ROS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'End of Life',
+      },
+    },
+  },
+  'ros-2': {
+    name: 'ROS 2',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'End Of Life',
+      },
+    },
+  },
+  'roundcube': {
+    name: 'Roundcube Webmail',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -3880,6 +4666,83 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'salt': {
+    name: 'Salt',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'CVE & Critical Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'samsung-mobile': {
+    name: 'Samsung Mobile',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Updates',
+      },
+    },
+  },
+  'sapmachine': {
+    name: 'SapMachine',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'scala': {
+    name: 'Scala',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Current Releases',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Maintenance Releases',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'sharepoint': {
     name: 'Microsoft SharePoint',
     columns: {
@@ -3901,6 +4764,59 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'silverstripe': {
+    name: 'Silverstripe CMS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Development',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'slackware': {
+    name: 'Slackware Linux',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
+  'sles': {
+    name: 'SUSE Linux Enterprise Server',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'General Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Long Term Service Pack Support',
+      },
+    },
+  },
   'solr': {
     name: 'Apache Solr',
     columns: {
@@ -3913,6 +4829,44 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-eol': {
         header: 'Security Support',
         invert: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'sonar': {
+    name: 'SonarQube',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Bug and Security Fixes',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'sourcegraph': {
+    name: 'Soucegraph',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -4002,6 +4956,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'squid': {
+    name: 'Squid',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'steamos': {
     name: 'SteamOS',
     columns: {
@@ -4029,6 +5000,78 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'End of Servicing Date',
+      },
+    },
+  },
+  'symfony': {
+    name: 'Symfony',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'tails': {
+    name: 'Tails',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'tarantool': {
+    name: 'Tarantool',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'telegraf': {
+    name: 'Telegraf',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
       },
     },
   },
@@ -4070,6 +5113,115 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-aux-min-java-version': undefined,
     },
   },
+  'traefic': {
+    name: 'Traefic',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'twig': {
+    name: 'Twig',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'typo3': {
+    name: 'TYPO3',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Long Term Support', 
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'ubuntu': {
+    name: 'Ubuntu',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Hardware & Maintenance',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Maintenance & Security Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Security Maintenance',
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'umbraco': {
+    name: 'Unbraco CMS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'unity': {
     name: 'Unity',
     columns: {
@@ -4087,6 +5239,97 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       }
     },
   },
+  'unrealircd': {
+    name: 'UnrealIRCd',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'varnish': {
+    name: 'Varnish',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'vcenter': {
+    name: 'VMware vCenter Server',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'General Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+    auxTable: {
+      'cycle-aux-cycle': undefined,
+      'cycle-aux-technical-guidance': undefined,
+    },
+  },
+  'veeam-backup-and-replication': {
+    name: 'Veeam Backup & Replication',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'End of Fix',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'End of Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'visual-cobol': {
+    name: 'Visual COBOL',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+    },
+  },
   'visual-studio': {
     name: 'Microsoft Visual Studio',
     columns: {
@@ -4098,6 +5341,57 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Active Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'vmware-cloud-foundation': {
+    name: 'VMware Cloud Foundation',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'General Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'vmware-harbor-registry': {
+    name: 'VMware Harbor Registry',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'End of General Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'vmware-srm': {
+    name: 'VMware Site Recovery Manager',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'General Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -4127,6 +5421,65 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-latest': {
         header: 'Latest',
       }
+    },
+  },
+  'vuetify': {
+    name: 'Vuetify',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'wagtail': {
+    name: 'Wagtail',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'weechat': {
+    name: 'WeeChat',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Active Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
     },
   },
   'windows': {
@@ -4189,6 +5542,113 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-latest': {
         header: 'Latest',
+      },
+    },
+  },
+  'wordpress': {
+    name: 'WordPress',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-supported-php-versions': {
+        header: 'Supported PHP',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'xcp-ng': {
+    name: 'XCP-ng',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-eol': {
+        header: 'Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'yarn': {
+    name: 'Yarn',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'yocto': {
+    name: 'Yocto Project',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'zabbix': {
+    name: 'Zabbix',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'zerto': {
+    name: 'Zerto',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'General Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Critical Support',
       },
     },
   },

@@ -11,6 +11,7 @@ export interface EndOfLifeDetails {
   latestReleaseDate?: string;
   link: string | null;
   lts: boolean | string;
+  kernelVersion?: number | string;
   maxAngularVersion?: string;
   minAngularVersion?: string;
   minJavaVersion?: string;

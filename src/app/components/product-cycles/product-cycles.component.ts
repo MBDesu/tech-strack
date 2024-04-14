@@ -39,6 +39,7 @@ export class ProductCyclesComponent implements OnInit {
     'cycle-release-date',
     'cycle-discontinued',
     'cycle-support',
+    'cycle-kernel-version',
     'cycle-lts',
     'cycle-eol',
     'cycle-extended-support',
