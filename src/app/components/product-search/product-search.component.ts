@@ -83,7 +83,6 @@ export class ProductSearchComponent implements OnInit, AfterViewInit {
       this.selectedProducts.filter((selectedProduct) => selectedProduct !== product);
     this.selectedProductsChange.emit(this.selectedProducts);
     this.productRemoved.emit(product);
-    this.productSearchInput?.nativeElement.focus();
   };
 
   protected readonly productCycleColumnMapping = productCycleColumnMapping;

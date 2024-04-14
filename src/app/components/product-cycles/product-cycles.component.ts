@@ -32,7 +32,10 @@ export class ProductCyclesComponent implements OnInit {
   columnDefs: string[] = [];
   defaultColumns = [
     'cycle-cycle',
+    'cycle-supported-ios-versions',
     'cycle-supported-android-versions',
+    'cycle-supported-python-versions',
+    'cycle-supported-php-versions',
     'cycle-release-date',
     'cycle-discontinued',
     'cycle-support',
@@ -54,8 +57,8 @@ export class ProductCyclesComponent implements OnInit {
       this.productMapping = productCycleColumnMapping[this.product];
       if (this.productMapping) {
         const properties = Object.keys(this.productMapping['columns']);
-        this.defaultColumns.forEach((column: string) => {
-          if (properties.find((property) => property === column)) {
+        properties.forEach((column) => {
+          if (this.defaultColumns.find((columnDef) => column === columnDef)) {
             this.columnDefs.push(...[column]);
           }
         });

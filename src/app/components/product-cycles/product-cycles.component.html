@@ -7,7 +7,22 @@
 
     <ng-container matColumnDef="cycle-supported-android-versions">
       <th mat-header-cell *matHeaderCellDef>{{ productMapping?.['columns']?.['cycle-supported-android-versions']?.['header'] }}</th>
-      <td mat-cell *matCellDef="let cycle">{{cycle.supportedAndroidVersions}}</td>
+      <td mat-cell *matCellDef="let cycle">{{cycle.supportedAndroidVersions ?? cycle.androidVersion}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cycle-supported-ios-versions">
+      <th mat-header-cell *matHeaderCellDef>{{ productMapping?.columns?.['cycle-supported-ios-versions']?.header }}</th>
+      <td mat-cell *matCellDef="let cycle">{{cycle.supportedIosVersions}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cycle-supported-python-versions">
+      <th mat-header-cell *matHeaderCellDef>{{ productMapping?.columns?.['cycle-supported-python-versions']?.header }}</th>
+      <td mat-cell *matCellDef="let cycle">{{cycle.supportedPythonVersions}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cycle-supported-php-versions">
+      <th mat-header-cell *matHeaderCellDef>{{ productMapping?.columns?.['cycle-supported-php-versions']?.header }}</th>
+      <td mat-cell *matCellDef="let cycle">{{cycle.supportedPhpVersions}}</td>
     </ng-container>
 
     <ng-container matColumnDef="cycle-release-date">
@@ -92,19 +107,84 @@
         <td mat-cell *matCellDef="let cycle">{{cycle.cycle}}{{cycle.codename ? ' (' + cycle.codename + ')' : '' }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="cycle-aux-angular-versions">
+      <ng-container matColumnDef="cycle-aux-upgrade-version">
+        <th mat-header-cell *matHeaderCellDef>Upgrade To</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.upgradeVersion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-supported-angular-versions">
         <th mat-header-cell *matHeaderCellDef>Angular Versions</th>
         <td mat-cell *matCellDef="let cycle">{{cycle.minAngularVersion}} - {{cycle.maxAngularVersion}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="cycle-aux-react-versions">
+      <ng-container matColumnDef="cycle-aux-supported-php-versions">
+        <th mat-header-cell *matHeaderCellDef>PHP Versions</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.supportedPhpVersions}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-supported-drupal-versions">
+        <th mat-header-cell *matHeaderCellDef>Drupal Versions</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.supportedDrupalVersions}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-supported-react-versions">
         <th mat-header-cell *matHeaderCellDef>React Versions</th>
         <td mat-cell *matCellDef="let cycle">{{cycle.supportedReactVersions}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="cycle-aux-vue-versions">
+      <ng-container matColumnDef="cycle-aux-supported-vue-versions">
         <th mat-header-cell *matHeaderCellDef>Vue Versions</th>
         <td mat-cell *matCellDef="let cycle">{{cycle.supportedVueVersions}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-min-java-version">
+        <th mat-header-cell *matHeaderCellDef>Minimum Java Version</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.minJavaVersion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-min-jvm-version">
+        <th mat-header-cell *matHeaderCellDef>Min JVM</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.minJvmVersion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-servlet-version">
+        <th mat-header-cell *matHeaderCellDef>Servlet</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.servletVersion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-jsp-version">
+        <th mat-header-cell *matHeaderCellDef>JSP</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.jspVersion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-ansible-core-version">
+        <th mat-header-cell *matHeaderCellDef>ansible-core</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.ansibleCoreVersion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-python-version">
+        <th mat-header-cell *matHeaderCellDef>Python Version</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.pythonVersion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-spark-version">
+        <th mat-header-cell *matHeaderCellDef>Spark Version</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.sparkVersion}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-python-versions-control-node">
+        <th mat-header-cell *matHeaderCellDef>Control node Python</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.pythonVersionsControlNode}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-python-versions-managed-node">
+        <th mat-header-cell *matHeaderCellDef>Managed node Python</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.pythonVersionsManagedNode}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cycle-aux-powershell-versions-managed-node">
+        <th mat-header-cell *matHeaderCellDef>Managed node PowerShell</th>
+        <td mat-cell *matCellDef="let cycle">{{cycle.powershellVersionsManagedNode}}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="auxColumns; sticky: true"></tr>
