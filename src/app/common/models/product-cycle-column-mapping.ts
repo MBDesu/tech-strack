@@ -1333,6 +1333,37 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'dotnet': {
+    name: 'Microsoft .NET',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'dotnetfx': {
+    name: 'Microsoft .NET Framework',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+    },
+  },
   'drupal': {
     name: 'Drupal',
     columns: {
@@ -2808,6 +2839,82 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
         header: 'Latest',
       },
     },
+    auxTable: {
+      'cycle-aux-cycle': undefined,
+      'cycle-aux-supported-php-versions': undefined,
+    },
+  },
+  'mariadb': {
+    name: 'MariaDB',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'mastodon': {
+    name: 'Mastodon',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'matomo': {
+    name: 'Matomo',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Long Term Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'mattermost': {
+    name: 'Mattermost',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
   },
   'maven': {
     name: 'Apache Maven',
@@ -2821,6 +2928,172 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-eol': {
         header: 'Support',
         invert: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'mediawiki': {
+    name: 'MediaWiki',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'End-of-Life',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'meilisearch': {
+    name: 'Meilisearch',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'memcached': {
+    name: 'Memcached',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'micronaut': {
+    name: 'Micronaut Framework',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Development',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Active Maintenance',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'microsoft-build-of-openjdk': {
+    name: 'Microsoft Build of OpenJDK',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'mongodb': {
+    name: 'MongoDB Server',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'moodle': {
+    name: 'Moodle',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+    auxTable: {
+      'cycle-aux-cycle': undefined,
+      'cycle-aux-supported-php-versions': undefined,
+    },
+  },
+  'motorola-mobility': {
+    name: 'Motorola Mobility',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Updates',
+      },
+    },
+  },
+  'msexchange': {
+    name: 'Microsoft Exchange',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -2851,6 +3124,48 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'mulesoft-runtime': {
+    name: 'Mule Runtime',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Standard Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Extended Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'mxlinux': {
+    name: 'MX Linux',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'mysql': {
     name: 'MySQL',
     columns: {
@@ -2866,6 +3181,61 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Extended Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'neo4j': {
+    name: 'Neo4j',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'netbsd': {
+    name: 'NetBSD',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nexcloud': {
+    name: 'Nextcloud',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -2889,6 +3259,71 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'nexus': {
+    name: 'Nexus Repository OSS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nginx': {
+    name: 'nginx',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nix': {
+    name: 'nix',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nixos': {
+    name: 'NixOS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
   'nodejs': {
     name: 'Node.js',
     columns: {
@@ -2909,6 +3344,252 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
         header: 'Latest',
       }
     }
+  },
+  'nokia': {
+    name: 'Nokia Mobile',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
+  'nomad': {
+    name: 'Nomad',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'numpy': {
+    name: 'NumPy',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nutanix-aos': {
+    name: 'Nutanix AOS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nutanix-files': {
+    name: 'Nutanix Files',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nutanix-prism': {
+    name: 'Nutanix Prism Central',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nuxt': {
+    name: 'Nuxt',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nvidia': {
+    name: 'NVIDIA Driver',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nvidia-gpu': {
+    name: 'NVIDIA GPUs',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-discontinued': {
+        header: 'Discontinued',
+        altGoodText: 'In Production',
+        altBadText: 'Discontinued',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
+  'office': {
+    name: 'Microsoft Office',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
+  'openbsd': {
+    name: 'OpenBSD',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
+  'openjdk-builds-from-oracle': {
+    name: 'OpenJDK Builds from Oracle',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'opensearch': {
+    name: 'OpenSearch',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Development',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Maintenance Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
   },
   'oracle-jdk': {
     name: 'Oracle JDK',
@@ -2978,6 +3659,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
   },
   'postgresql': {
     name: 'PostgreSQL',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'powershell': {
+    name: 'Microsoft PowerShell',
     columns: {
       'cycle-cycle': {
         header: 'Release',
@@ -3093,6 +3791,17 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'readynas': {
+    name: 'Netgear ReadyNAS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
   'redis': {
     name: 'Redis',
     columns: {
@@ -3165,6 +3874,27 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Supported',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'sharepoint': {
+    name: 'Microsoft SharePoint',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -3288,6 +4018,20 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'surface': {
+    name: 'Microsoft Surface',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'End of Servicing Date',
+      },
+    },
+  },
   'terraform': {
     name: 'Hashicorp Terraform',
     columns: {
@@ -3343,6 +4087,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       }
     },
   },
+  'visual-studio': {
+    name: 'Microsoft Visual Studio',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Active Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'vue': {
     name: 'Vue',
     columns: {
@@ -3382,6 +4143,49 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'windows-embedded': {
+    name: 'Microsoft Windows Embedded',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+    },
+  },
+  'windows-server': {
+    name: 'Microsoft Windows Server',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Security Updates',
+        unavailable: true,
       },
       'cycle-latest': {
         header: 'Latest',
