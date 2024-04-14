@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenavContent, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
@@ -14,6 +14,8 @@ import { ThemingService } from './common/services/theming.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { SelectedProductsComponent } from './components/selected-products/selected-products.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -32,6 +34,7 @@ import { SelectedProductsComponent } from './components/selected-products/select
     ProductSearchComponent,
     RouterOutlet,
     SelectedProductsComponent,
+    ScrollToTopComponent,
   ]
 })
 export class AppComponent implements OnInit, AfterViewInit {
@@ -43,6 +46,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   @ViewChild('themeToggle', { read: ElementRef })
   private themeToggle!: ElementRef;
+
+  @ViewChild('sidenavContent')
+  private sidenavContent!: MatSidenavContent;
 
   protected error = false;
   protected loading = false;
@@ -99,6 +105,10 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.selectedProducts = this.selectedProducts.filter((selectedProduct) => product !== selectedProduct);
       localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts));
     }
+  }
+
+  getScrollSub(): Observable<Event> {
+    return this.sidenavContent?.elementScrolled();
   }
 
 }

@@ -72,7 +72,6 @@ export class ProductCyclesComponent implements OnInit {
           }
         });
       }
-      console.log(this.auxColumns);
     }
   }
 

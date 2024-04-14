@@ -9,7 +9,7 @@
   </div>
 </mat-toolbar>
 <mat-sidenav-container class="app">
-  <mat-sidenav-content class="app-content">
+  <mat-sidenav-content #sidenavContent class="app-content">
     @if (loading) {
       <mat-spinner></mat-spinner>
     } @else if (products) {
@@ -23,6 +23,7 @@
       </div>
     }
     <app-selected-products [selectedProducts]="selectedProducts" [selectedProductData]="selectedProductData" (productRemoved)="removeProduct($event)" />
+    <app-scroll-to-top [onScroll]="getScrollSub()" [el]="sidenavContent"></app-scroll-to-top>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
