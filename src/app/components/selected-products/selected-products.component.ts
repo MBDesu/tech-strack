@@ -1,4 +1,4 @@
-import { Component, Input, output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { EndOfLifeDetails } from '../../services/end-of-life/models/end-of-life-api';
 import { productCycleColumnMapping } from '../../common/models/product-cycle-column-mapping';
@@ -22,7 +22,8 @@ export class SelectedProductsComponent {
   @Input({ required: true })
   selectedProductData!: { [key: string]: EndOfLifeDetails[] };
 
-  public productRemoved = output<string>();
+  @Output()
+  productRemoved = new EventEmitter<string>();
 
   protected readonly productCycleColumnMapping = productCycleColumnMapping;
 }

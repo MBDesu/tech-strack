@@ -1,6 +1,6 @@
 <mat-accordion multi>
 @for (product of selectedProducts; track product) {
-  <mat-expansion-panel>
+  <mat-expansion-panel class="product-expansion">
     <mat-expansion-panel-header>
       <mat-panel-title>{{ productCycleColumnMapping[product]?.name || product }}</mat-panel-title>
     </mat-expansion-panel-header>
