@@ -3,7 +3,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AsyncPipe, DOCUMENT } from '@angular/common';
 import { map, Observable } from 'rxjs';
-import { fromSubscribable } from 'rxjs/internal/observable/fromSubscribable';
 import { MatSidenavContent } from '@angular/material/sidenav';
 
 @Component({
