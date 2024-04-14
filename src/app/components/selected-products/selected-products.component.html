@@ -1,0 +1,12 @@
+<mat-accordion multi>
+@for (product of selectedProducts; track product) {
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{ productCycleColumnMapping[product]?.name || product }}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <app-product-cycles [eolDetails]="selectedProductData[product]" (productRemoved)="productRemoved.emit($event)" [product]="product"></app-product-cycles>
+    </ng-template>
+  </mat-expansion-panel>
+}
+</mat-accordion>

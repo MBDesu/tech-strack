@@ -12,6 +12,8 @@ import { EndOfLifeService } from './services/end-of-life/end-of-life.service';
 import { EndOfLifeDetails } from './services/end-of-life/models/end-of-life-api';
 import { ThemingService } from './common/services/theming.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { SelectedProductsComponent } from './components/selected-products/selected-products.component';
 
 @Component({
     selector: 'app-root',
@@ -20,6 +22,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     styleUrls: ['./app.component.scss'],
   imports: [
     CommonModule,
+    MatExpansionModule,
     MatIconModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
@@ -28,6 +31,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ProductCyclesComponent,
     ProductSearchComponent,
     RouterOutlet,
+    SelectedProductsComponent,
   ]
 })
 export class AppComponent implements OnInit, AfterViewInit {

@@ -39,6 +39,24 @@
   text-align: center;
 }
 
+.mat-column-cycle-aux-cycle {
+  text-align: center;
+  width: 32px;
+  padding-right: 24px;
+}
+
+.mat-column-cycle-aux-angular-versions {
+  text-align: center;
+}
+
+.mat-column-cycle-aux-react-versions {
+  text-align: center;
+}
+
+.mat-column-cycle-aux-vue-versions {
+  text-align: center;
+}
+
 .mat-mdc-table {
   max-height: 264px;
   overflow: auto;
@@ -72,3 +90,6 @@ td:last-child {
   border-right: none;
 }
 
+.data-table-expansion {
+  --mat-expansion-container-background-color: var(--mat-table-background-color);
+}

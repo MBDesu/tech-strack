@@ -22,11 +22,12 @@
         />
       </div>
     }
-    @for (product of selectedProducts; track product) {
-      @if (selectedProductData[product]) {
-        <app-product-cycles [product]="product" [eolDetails]="selectedProductData[product]" (productRemoved)="removeProduct($event)" />
-      }
-    }
+<!--    @for (product of selectedProducts; track product) {-->
+<!--      @if (selectedProductData[product]) {-->
+<!--        <app-product-cycles [product]="product" [eolDetails]="selectedProductData[product]" (productRemoved)="removeProduct($event)" />-->
+<!--      }-->
+<!--    }-->
+    <app-selected-products [selectedProducts]="selectedProducts" [selectedProductData]="selectedProductData" (productRemoved)="removeProduct($event)" />
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

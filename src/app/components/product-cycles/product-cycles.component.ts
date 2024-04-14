@@ -7,12 +7,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { EndOfLifeDetails } from '../../services/end-of-life/models/end-of-life-api';
 import moment from 'moment';
 import { productCycleColumnMapping, ProductDefinition } from '../../common/models/product-cycle-column-mapping';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-product-cycles',
   standalone: true,
   imports: [
     CommonModule,
+    MatExpansionModule,
     MatButtonModule,
     MatIconModule,
     MatTableModule,

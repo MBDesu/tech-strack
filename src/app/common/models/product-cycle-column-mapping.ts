@@ -1,5 +1,3 @@
-import { never } from 'rxjs';
-
 export interface ColumnDefinition {
   header: string;
   unavailable?: boolean;
@@ -322,6 +320,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'horizon': {
+    name: 'VMware Horizon',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'General Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'ionic': {
     name: 'Ionic Framework',
     columns: {
@@ -370,6 +385,42 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'kotlin': {
+    name: 'Kotlin',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+        invert: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'macos': {
+    name: 'Apple macOS',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Service Status',
+        invert: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'mssqlserver': {
     name: 'Microsoft SQL Server',
     columns: {
@@ -409,6 +460,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Extended Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'nextjs': {
+    name: 'Next.js',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -502,6 +570,44 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     }
   },
+  'postgresql': {
+    name: 'PostgreSQL',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support Status',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'protractor': {
+    name: 'Protractor',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Community Support',
+      },
+      'cycle-extended-support': {
+        header: 'Commercial Support',
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'python': {
     name: 'Python',
     columns: {
@@ -523,8 +629,66 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'rabbitmq': {
+    name: 'RabbitMQ',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Community Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Commercial Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'rails': {
+    name: 'Ruby on Rails',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'react': {
     name: 'React',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'redis': {
+    name: 'Redis',
     columns: {
       'cycle-cycle': {
         header: 'Release',
@@ -595,6 +759,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Supported',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'splunk': {
+    name: 'Splunk',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Security Support',
       },
       'cycle-latest': {
         header: 'Latest',
