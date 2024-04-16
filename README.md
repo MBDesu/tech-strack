@@ -7,7 +7,7 @@ Roadmap:
 - [ ] Code cleanup (never done)
 - [ ] Configuration options
   - [ ] Compact view with current versions of dependencies only
-  - [ ] Show last _n_ versions
+  - [ ] Show last $`n`$ versions
 - [ ] Detection/formatting of out-of-support versions
 - [ ] Multiple stack profiles
 - [ ] Support for input of extant teck stack for comparison/alerts
