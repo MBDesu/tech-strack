@@ -781,7 +781,7 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-latest': {
         header: 'Latest',
       },
-    }, 
+    },
   },
   'blender': {
     name: 'Blender',
@@ -2671,7 +2671,7 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-latest': {
         header: 'Latest',
       },
-    }, 
+    },
   },
   'libreoffice': {
     name: 'LibreOffice',
@@ -4905,13 +4905,14 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-extended-support': {
         header: 'Commercial Support',
       },
-      'cycle-supported-java-versions': {
-        header: 'JDK',
-      },
       'cycle-latest': {
         header: 'Latest',
       }
-    }
+    },
+    auxTable: {
+      'cycle-aux-cycle': undefined,
+      'cycle-aux-supported-java-versions': undefined,
+    },
   },
   'spring-framework': {
     name: 'Spring Framework',
@@ -4928,15 +4929,14 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-extended-support': {
         header: 'Commercial Support',
       },
-      'cycle-supported-java-versions': {
-        header: 'JDK',
-      },
-      'cycle-supported-jakarta-ee-versions': {
-        header: 'Jakarta EE',
-      },
       'cycle-latest': {
         header: 'Latest',
       }
+    },
+    auxTable: {
+      'cycle-aux-cycle': undefined,
+      'cycle-aux-supported-java-versions': undefined,
+      'cycle-aux-supported-jakarta-ee-versions': undefined,
     },
   },
   'sqlite': {
@@ -5168,7 +5168,7 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
         header: 'Security Support',
       },
       'cycle-extended-support': {
-        header: 'Extended Long Term Support', 
+        header: 'Extended Long Term Support',
         unavailable: true,
       },
       'cycle-latest': {

@@ -1,5 +1,5 @@
 import { CommonModule, formatDate } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -27,7 +27,6 @@ export class ProductCyclesComponent implements OnInit {
 
   @Input({ required: true }) eolDetails!: EndOfLifeDetails[];
   @Input({ required: true }) product!: string;
-  @Output() productRemoved = new EventEmitter<string>();
 
   columnDefs: string[] = [];
   defaultColumns = [
@@ -56,6 +55,7 @@ export class ProductCyclesComponent implements OnInit {
     this.productDataSource = new MatTableDataSource<EndOfLifeDetails>(this.eolDetails);
     if (this.eolDetails) {
       this.productMapping = productCycleColumnMapping[this.product];
+
       if (this.productMapping) {
         const properties = Object.keys(this.productMapping['columns']);
         properties.forEach((column) => {
@@ -63,6 +63,7 @@ export class ProductCyclesComponent implements OnInit {
             this.columnDefs.push(...[column]);
           }
         });
+
         if (this.productMapping.auxTable) {
           Object.keys(this.productMapping.auxTable).forEach((column) => {
             this.auxColumns.push(...[column]);
@@ -70,6 +71,7 @@ export class ProductCyclesComponent implements OnInit {
         }
       } else {
         const properties = Object.getOwnPropertyNames(this.eolDetails[0]);
+
         this.defaultColumns.forEach((column: string) => {
           if (properties.find((property) => `cycle-${this.makeKebab(property)}` === column)) {
             this.columnDefs.push(...[column]);
@@ -81,10 +83,7 @@ export class ProductCyclesComponent implements OnInit {
 
   private makeKebab = (str: string) => str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
 
-  removeProduct(): void {
-    this.productRemoved.emit(this.product);
-  }
-
+  // TODO: refactor this
   formatTimeAgo = (date: string | boolean, prefix?: boolean, unavailable?: boolean, invert?: boolean, goodText = 'Yes', badText = 'No'): string => {
     if (typeof date === 'boolean') return this.formatDateOrBoolean(date, unavailable, invert, goodText, badText);
 
@@ -101,6 +100,7 @@ export class ProductCyclesComponent implements OnInit {
 
   };
 
+  // TODO: refactor this
   formatDateOrBoolean = (date: string | boolean, unavailable?: boolean, invert?: boolean, goodText = 'Yes', badText = 'No'): string => {
     if (typeof date === 'boolean') {
       if (!unavailable) {
@@ -116,6 +116,7 @@ export class ProductCyclesComponent implements OnInit {
         : '';
   };
 
+  // TODO: refactor this
   resolveDateClass(date: string | boolean, unavailable?: boolean, invert?: boolean): string {
     if (typeof date === 'boolean') {
       if (!unavailable) {
