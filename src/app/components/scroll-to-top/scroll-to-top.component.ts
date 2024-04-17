@@ -1,8 +1,8 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AsyncPipe, DOCUMENT } from '@angular/common';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MatSidenavContent } from '@angular/material/sidenav';
 
 @Component({
@@ -16,7 +16,7 @@ import { MatSidenavContent } from '@angular/material/sidenav';
   templateUrl: './scroll-to-top.component.html',
   styleUrl: './scroll-to-top.component.scss'
 })
-export class ScrollToTopComponent implements OnInit {
+export class ScrollToTopComponent {
 
   private document = inject(DOCUMENT);
 
@@ -28,14 +28,6 @@ export class ScrollToTopComponent implements OnInit {
 
   @Input()
   onScroll!: Observable<Event>;
-
-  canScroll!: Observable<boolean>;
-
-  ngOnInit(): void {
-    this.canScroll = this.onScroll.pipe(
-      map(() => this.el.measureScrollOffset('top') > 0)
-    );
-  }
 
   onScrollToTop(): void {
     this.el.scrollTo({top: 0, left: 0});

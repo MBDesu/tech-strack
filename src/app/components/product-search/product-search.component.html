@@ -14,7 +14,7 @@
     <input
       #productSearchInput
       type="text"
-      placeholder="react"
+      [placeholder]="productCycleColumnMapping[placeholder]?.name ?? placeholder"
       aria-label="Product"
       matInput
       [formControl]="productFormControl"

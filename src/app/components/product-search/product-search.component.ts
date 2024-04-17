@@ -42,8 +42,10 @@ export class ProductSearchComponent implements OnInit, AfterViewInit {
   protected productFormControl = new FormControl('', Validators.compose([
     Validators.required,
   ]));
+  protected placeholder = '';
 
   ngOnInit(): void {
+    this.placeholder = this.getRandomProduct();
     this.filteredProducts = this.productFormControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
@@ -78,11 +80,15 @@ export class ProductSearchComponent implements OnInit, AfterViewInit {
     }
   };
 
-  protected removeProduct = (product: string) => {
+  protected removeProduct = (product: string): void => {
     this.selectedProducts =
       this.selectedProducts.filter((selectedProduct) => selectedProduct !== product);
     this.selectedProductsChange.emit(this.selectedProducts);
     this.productRemoved.emit(product);
+  };
+
+  protected getRandomProduct = (): string => {
+    return this.products[Math.floor(Math.random() * this.products.length)];
   };
 
   protected readonly productCycleColumnMapping = productCycleColumnMapping;
