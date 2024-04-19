@@ -2,10 +2,14 @@
   <div class="app-title-bar">
     <span>Tech Strack</span>
     <span class="spacer"></span>
-    <span style="margin-right: 0.6em;">
+    <span>
       <mat-slide-toggle #themeToggle [checked]="!themingService.isDarkTheme" (toggleChange)="themingService.toggleTheme()"></mat-slide-toggle>
     </span>
-    <span class="credit"><a href="https://github.com/MBDesu" target="_blank"><mat-icon style="vertical-align:text-bottom;" svgIcon="github"></mat-icon>&nbsp;MBDesu</a></span>
+    <span>
+      <button mat-icon-button (click)="showHelp()">
+        <mat-icon>help</mat-icon>
+      </button>
+    </span>
   </div>
 </mat-toolbar>
 <mat-sidenav-container class="app">

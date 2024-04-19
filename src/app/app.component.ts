@@ -15,6 +15,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { SelectedProductsComponent } from './components/selected-products/selected-products.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { HelpModalComponent } from './components/help-modal/help-modal.component';
 
 @Component({
     selector: 'app-root',
@@ -23,6 +26,7 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
     styleUrls: ['./app.component.scss'],
   imports: [
     CommonModule,
+    MatButtonModule,
     MatExpansionModule,
     MatIconModule,
     MatProgressSpinnerModule,
@@ -38,7 +42,8 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
 })
 export class AppComponent implements OnInit, AfterViewInit {
 
-  protected themingService = inject(ThemingService);
+
+  private dialog = inject(MatDialog);
   private endOfLifeService = inject(EndOfLifeService);
   private matIconRegistry = inject(MatIconRegistry);
   private sanitizer = inject(DomSanitizer);
@@ -50,6 +55,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   protected products: string[] = [];
   protected selectedProducts: string[] = [];
   protected selectedProductData: { [key: string]: EndOfLifeDetails[] } = {};
+  protected themingService = inject(ThemingService);
 
   public title = 'tech-strack';
 
@@ -101,6 +107,10 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.selectedProducts = this.selectedProducts.filter((selectedProduct) => product !== selectedProduct);
       localStorage.setItem('selectedProducts', JSON.stringify(this.selectedProducts));
     }
+  }
+
+  showHelp(): void {
+    this.dialog.open(HelpModalComponent);
   }
 
 }
