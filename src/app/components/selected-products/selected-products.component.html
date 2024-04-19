@@ -1,6 +1,6 @@
 <mat-accordion cdkDropList (cdkDropListDropped)="drop($event)" multi>
   @for (product of selectedProducts; track product) {
-    <mat-expansion-panel cdkDrag class="product-expansion">
+    <mat-expansion-panel cdkDrag [cdkDragStartDelay]="200" class="product-expansion">
       <mat-expansion-panel-header>
         <mat-panel-title>{{ productCycleColumnMapping[product]?.name || product }}</mat-panel-title>
       </mat-expansion-panel-header>
