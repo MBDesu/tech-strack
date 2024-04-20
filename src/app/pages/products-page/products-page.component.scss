@@ -1,0 +1,10 @@
+.search-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.search-item {
+  width: 100%;
+  max-width: 1000px;
+}

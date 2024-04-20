@@ -1,0 +1,21 @@
+<div class="search-container">
+  @if (loading) {
+    <mat-spinner/>
+  } @else if (products) {
+    <div class="search-item">
+      <app-product-search
+        [products]="products"
+        [(selectedProducts)]="selectedProducts"
+        (productSelected)="addProduct($event)"
+        (productRemoved)="removeProduct($event)"
+      />
+    </div>
+  }
+  <div class="search-item">
+    <app-selected-products
+      [selectedProducts]="selectedProducts"
+      [selectedProductData]="selectedProductData"
+      (productRemoved)="removeProduct($event)"
+    />
+  </div>
+</div>

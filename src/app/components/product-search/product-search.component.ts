@@ -1,21 +1,35 @@
+import { CdkCopyToClipboard } from '@angular/cdk/clipboard';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  inject,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { map, Observable, startWith } from 'rxjs';
-import { CustomValidators } from '../../utils/custom-validators';
-import { MatChipsModule } from '@angular/material/chips';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { productCycleColumnMapping } from '../../common/models/product-cycle-column-mapping';
+import { CustomValidators } from '../../utils/custom-validators';
 
 @Component({
   selector: 'app-product-search',
   standalone: true,
   imports: [
+    CdkCopyToClipboard,
     CommonModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
@@ -24,25 +38,27 @@ import { productCycleColumnMapping } from '../../common/models/product-cycle-col
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatTooltipModule,
   ],
   templateUrl: './product-search.component.html',
   styleUrl: './product-search.component.scss'
 })
 export class ProductSearchComponent implements OnInit, AfterViewInit {
 
-  @Input({ required: true }) products!: string[];
-  @Input({ required: true }) selectedProducts!: string[];
-  @Output() selectedProductsChange = new EventEmitter<string[]>();
-  @Output() productSelected = new EventEmitter<string | null>();
-  @Output() productRemoved = new EventEmitter<string | null>();
-  @ViewChild('productSearchInput') protected productSearchInput!: ElementRef<HTMLInputElement>;
+  @Input({ required: true }) public products!: string[];
+  @Input({ required: true }) public selectedProducts!: string[];
+  @Output() public selectedProductsChange = new EventEmitter<string[]>();
+  @Output() public productSelected = new EventEmitter<string | null>();
+  @Output() public productRemoved = new EventEmitter<string | null>();
 
+  @ViewChild('productSearchInput') protected productSearchInput!: ElementRef<HTMLInputElement>;
   protected filteredProducts!: Observable<string[]>;
   protected separatorKeyCodes = [ENTER, COMMA];
   protected productFormControl = new FormControl('', Validators.compose([
     Validators.required,
   ]));
   protected placeholder = '';
+  protected snackbar = inject(MatSnackBar);
 
   ngOnInit(): void {
     this.placeholder = this.getRandomProduct();
@@ -89,6 +105,10 @@ export class ProductSearchComponent implements OnInit, AfterViewInit {
 
   protected getRandomProduct = (): string => {
     return this.products[Math.floor(Math.random() * this.products.length)];
+  };
+
+  protected getLink = (): string => {
+    return `${window.location.href.split('?')[0]}?products=${this.selectedProducts.join(',')}`;
   };
 
   protected readonly productCycleColumnMapping = productCycleColumnMapping;

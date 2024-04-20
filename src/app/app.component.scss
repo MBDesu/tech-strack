@@ -28,24 +28,9 @@ $app-content-width: calc(100vw - $app-total-padding);
   grid-row: content-row;
 }
 
-.app-sidenav-content {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-}
-
-.app-item {
-  width: 100%;
-  max-width: 1000px;
-}
-
 .app-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-}
-
-.spacer {
-  flex: 1 1 auto;
 }

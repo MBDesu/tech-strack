@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
-import { EndOfLifeDetails } from '../../services/end-of-life/models/end-of-life-api';
-import { productCycleColumnMapping } from '../../common/models/product-cycle-column-mapping';
-import { ProductCyclesComponent } from '../product-cycles/product-cycles.component';
 import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import { productCycleColumnMapping } from '../../common/models/product-cycle-column-mapping';
+import { EndOfLifeDetails } from '../../services/end-of-life/models/end-of-life-api';
+import { ProductCyclesComponent } from '../product-cycles/product-cycles.component';
 
 @Component({
   selector: 'app-selected-products',

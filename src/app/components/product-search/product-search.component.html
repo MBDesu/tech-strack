@@ -34,5 +34,17 @@
         <mat-icon>add</mat-icon>
       </button>
     }
+    @if (selectedProducts.length > 0) {
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Copy link"
+        matTooltip="Copy a link to this product list"
+        [cdkCopyToClipboard]="getLink()"
+        (click)="snackbar.open('Link copied to clipboard', 'OK', { duration: 3000 })"
+      >
+        <mat-icon>share</mat-icon>
+      </button>
+    }
   </mat-form-field>
 </div>
