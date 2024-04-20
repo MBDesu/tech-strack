@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "techstracker"
+  },
+  "targets": {
+    "techstracker": {
+      "hosting": {
+        "tech-strack": [
+          "techstracker"
+        ]
+      }
+    }
   }
 }
