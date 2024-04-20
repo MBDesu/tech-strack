@@ -4,7 +4,11 @@
       <span>Tech Strack</span>
       <span class="spacer"></span>
       <span>
-        <mat-slide-toggle #themeToggle [checked]="!themingService.isDarkTheme" (toggleChange)="themingService.toggleTheme()"></mat-slide-toggle>
+        <mat-slide-toggle
+          #themeToggle
+          [checked]="!themingService.isDarkTheme"
+          (toggleChange)="themingService.toggleTheme()"
+        />
       </span>
       <span>
         <button mat-icon-button (click)="showHelp()">
@@ -14,9 +18,10 @@
     </div>
   </mat-toolbar>
   <mat-sidenav-container class="app-sidenav-container">
-    <mat-sidenav-content class="app-sidenav-content" #sidenavContent>
+    <mat-sidenav-content #sidenavContent class="app-sidenav-content">
+      <!-- TODO: abstract these so app.component isn't doing so much lifting -->
       @if (loading) {
-        <mat-spinner></mat-spinner>
+        <mat-spinner/>
       } @else if (products) {
         <div class="app-item">
           <app-product-search
@@ -28,10 +33,14 @@
         </div>
       }
       <div class="app-item">
-        <app-selected-products [selectedProducts]="selectedProducts" [selectedProductData]="selectedProductData" (productRemoved)="removeProduct($event)" />
+        <app-selected-products
+          [selectedProducts]="selectedProducts"
+          [selectedProductData]="selectedProductData"
+          (productRemoved)="removeProduct($event)"
+        />
       </div>
-      <app-scroll-to-top [onScroll]="sidenavContent!.elementScrolled()" [el]="sidenavContent"></app-scroll-to-top>
-      <router-outlet></router-outlet>
+      <app-scroll-to-top [onScroll]="sidenavContent!.elementScrolled()" [el]="sidenavContent"/>
+      <router-outlet/>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

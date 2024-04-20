@@ -55,6 +55,7 @@ html {
   @include matx.color-variants-back-compat($dark-theme);
   @include get-component-colors($dark-theme);
   @include mat.typography-hierarchy($dark-theme, $back-compat: true);
+  @include matx.color-variants-back-compat($dark-theme);
   @include get-theme-props();
 
   &.strong-focus {
@@ -67,6 +68,7 @@ html {
   @include matx.color-variants-back-compat($light-theme);
   @include mat.typography-hierarchy($light-theme, $back-compat: true);
   @include get-component-colors($light-theme);
+  @include matx.color-variants-back-compat($light-theme);
 
   &.strong-focus {
     @include mat.strong-focus-indicators-color($light-theme);
@@ -107,5 +109,5 @@ body {
 }
 
 .mat-expansion-panel-body {
-  padding: 0 0 16px !important;
+  padding: 0 !important;
 }

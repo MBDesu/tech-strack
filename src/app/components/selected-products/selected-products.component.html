@@ -1,12 +1,16 @@
 <mat-accordion cdkDropList (cdkDropListDropped)="drop($event)" multi>
   @for (product of selectedProducts; track product) {
-    <mat-expansion-panel cdkDrag [cdkDragStartDelay]="200" class="product-expansion">
+    <mat-expansion-panel #productPanel cdkDrag [cdkDragStartDelay]="200" class="product-expansion">
       <mat-expansion-panel-header>
         <mat-panel-title>{{ productCycleColumnMapping[product]?.name || product }}</mat-panel-title>
       </mat-expansion-panel-header>
       <ng-template matExpansionPanelContent>
-        <app-product-cycles [eolDetails]="selectedProductData[product]" [product]="product"></app-product-cycles>
+        <app-product-cycles [eolDetails]="selectedProductData[product]" [product]="product"/>
       </ng-template>
+      <mat-action-row>
+        <button mat-button class="product-close-button" color="warn" (click)="accordion.closeAll()">Close all</button>
+        <button mat-button class="product-close-button" color="primary" (click)="productPanel.close()">Close this</button>
+      </mat-action-row>
     </mat-expansion-panel>
   }
 </mat-accordion>

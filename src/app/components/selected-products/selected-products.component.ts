@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { EndOfLifeDetails } from '../../services/end-of-life/models/end-of-life-api';
 import { productCycleColumnMapping } from '../../common/models/product-cycle-column-mapping';
 import { ProductCyclesComponent } from '../product-cycles/product-cycles.component';
 import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-selected-products',
@@ -11,6 +12,7 @@ import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk
   imports: [
     CdkDrag,
     CdkDropList,
+    MatButtonModule,
     MatExpansionModule,
     ProductCyclesComponent,
   ],
@@ -29,6 +31,8 @@ export class SelectedProductsComponent {
 
   @Output()
   public productRemoved = new EventEmitter<string>();
+
+  @ViewChild(MatAccordion) protected accordion!: MatAccordion;
 
   protected drop(event: CdkDragDrop<string[]>): void {
     moveItemInArray(this.selectedProducts, event.previousIndex, event.currentIndex);
