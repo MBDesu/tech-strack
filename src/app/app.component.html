@@ -1,33 +1,37 @@
-<mat-toolbar color="primary">
-  <div class="app-title-bar">
-    <span>Tech Strack</span>
-    <span class="spacer"></span>
-    <span>
-      <mat-slide-toggle #themeToggle [checked]="!themingService.isDarkTheme" (toggleChange)="themingService.toggleTheme()"></mat-slide-toggle>
-    </span>
-    <span>
-      <button mat-icon-button (click)="showHelp()">
-        <mat-icon>help</mat-icon>
-      </button>
-    </span>
-  </div>
-</mat-toolbar>
-<mat-sidenav-container class="app">
-  <mat-sidenav-content #sidenavContent class="app-content">
-    @if (loading) {
-      <mat-spinner></mat-spinner>
-    } @else if (products) {
-      <div class="app-search-box">
-        <app-product-search
-          [products]="products"
-          [(selectedProducts)]="selectedProducts"
-          (productSelected)="addProduct($event)"
-          (productRemoved)="removeProduct($event)"
-        />
+<div class="grid-app-container">
+  <mat-toolbar class="grid-toolbar" color="primary">
+    <div class="app-toolbar">
+      <span>Tech Strack</span>
+      <span class="spacer"></span>
+      <span>
+        <mat-slide-toggle #themeToggle [checked]="!themingService.isDarkTheme" (toggleChange)="themingService.toggleTheme()"></mat-slide-toggle>
+      </span>
+      <span>
+        <button mat-icon-button (click)="showHelp()">
+          <mat-icon>help</mat-icon>
+        </button>
+      </span>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container class="app-sidenav-container">
+    <mat-sidenav-content class="app-sidenav-content" #sidenavContent>
+      @if (loading) {
+        <mat-spinner></mat-spinner>
+      } @else if (products) {
+        <div class="app-item">
+          <app-product-search
+            [products]="products"
+            [(selectedProducts)]="selectedProducts"
+            (productSelected)="addProduct($event)"
+            (productRemoved)="removeProduct($event)"
+          />
+        </div>
+      }
+      <div class="app-item">
+        <app-selected-products [selectedProducts]="selectedProducts" [selectedProductData]="selectedProductData" (productRemoved)="removeProduct($event)" />
       </div>
-    }
-    <app-selected-products [selectedProducts]="selectedProducts" [selectedProductData]="selectedProductData" (productRemoved)="removeProduct($event)" />
-    <app-scroll-to-top [onScroll]="sidenavContent!.elementScrolled()" [el]="sidenavContent"></app-scroll-to-top>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      <app-scroll-to-top [onScroll]="sidenavContent!.elementScrolled()" [el]="sidenavContent"></app-scroll-to-top>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
