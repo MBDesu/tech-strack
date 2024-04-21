@@ -3,12 +3,12 @@
 Tech Strack is a tool that helps you track the lifecycles of the 3rd party dependencies in your tech stack. It uses the [endoflife.date API](https://endoflife.date/docs/api) to pull lifecycle information and display your entire stack in one place.
 
 Roadmap:
-- [x] MVP 
+- [x] ~~MVP~~
 - [ ] Code cleanup (never done)
 - [ ] Configuration options
   - [ ] Compact view with current versions of dependencies only
   - [ ] Show last $`n`$ versions
-- [ ] Detection/formatting of out-of-support versions
+- [x] ~~Detection/formatting of out-of-support versions~~
 - [ ] Multiple stack profiles
 - [ ] Support for input of extant teck stack for comparison/alerts
   - [ ] Automatically parse...
