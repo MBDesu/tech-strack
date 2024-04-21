@@ -51,11 +51,6 @@ export class ProductCyclesComponent implements OnInit {
     'cycle-eol': 'eol',
     // 'extendedSupport',
   };
-  checkColumns: string [] = [];
-  strikeCols = [
-    'cycle-cycle',
-    'cycle-latest',
-  ];
   auxColumns: string[] = [];
   productDataSource!: MatTableDataSource<EndOfLifeDetails>;
   productMapping: ProductDefinition | undefined;
