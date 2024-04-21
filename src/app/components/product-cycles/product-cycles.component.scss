@@ -92,3 +92,8 @@ td:last-child {
 .data-table-expansion {
   --mat-expansion-container-background-color: var(--mat-table-background-color);
 }
+
+.strike {
+  text-decoration: line-through;
+  font-style: italic;
+}

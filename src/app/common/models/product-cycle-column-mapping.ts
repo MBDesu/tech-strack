@@ -2288,9 +2288,6 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-eol': {
         header: 'Supported',
       },
-      'cycle-latest': {
-        header: 'Latest',
-      },
     },
   },
   'ipados': {

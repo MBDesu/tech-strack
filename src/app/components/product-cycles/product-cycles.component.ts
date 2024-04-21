@@ -46,6 +46,16 @@ export class ProductCyclesComponent implements OnInit {
     'cycle-supported-jakarta-ee-versions',
     'cycle-latest',
   ];
+  isEolColumnMap: { [key: string]: string } = {
+    'cycle-support': 'support',
+    'cycle-eol': 'eol',
+    // 'extendedSupport',
+  };
+  checkColumns: string [] = [];
+  strikeCols = [
+    'cycle-cycle',
+    'cycle-latest',
+  ];
   auxColumns: string[] = [];
   productDataSource!: MatTableDataSource<EndOfLifeDetails>;
   productMapping: ProductDefinition | undefined;
@@ -135,5 +145,21 @@ export class ProductCyclesComponent implements OnInit {
     }
     return 'is-soon';
   }
+
+  // TODO: refactor this
+  protected isEol = (cycle: EndOfLifeDetails): boolean => {
+    return Object.keys(this.isEolColumnMap)
+      .filter(
+        (column: string): boolean => Object.keys(productCycleColumnMapping[this.product]!.columns).indexOf(column) > -1
+      )
+      .map((column: string): boolean => {
+        const invert = !!productCycleColumnMapping[this.product]!.columns[column]?.invert;
+        const cycleProp = this.isEolColumnMap[column];
+        return this.resolveDateClass(
+          Object.getOwnPropertyDescriptors(cycle)[cycleProp].value, false, invert
+        ) === 'is-past';
+      })
+      .every((isPast: boolean) => isPast);
+  };
 
 }
