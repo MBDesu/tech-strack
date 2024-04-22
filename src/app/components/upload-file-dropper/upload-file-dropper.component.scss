@@ -1,0 +1,15 @@
+.drop-box {
+  border: dashed 2px;
+  border-radius: 20px;
+  height: 12rem;
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-dropper-content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}

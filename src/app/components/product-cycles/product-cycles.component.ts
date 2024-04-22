@@ -1,7 +1,6 @@
 import { CommonModule, formatDate } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -14,7 +13,6 @@ import { EndOfLifeDetails } from '../../services/end-of-life/models/end-of-life-
   standalone: true,
   imports: [
     CommonModule,
-    MatExpansionModule,
     MatButtonModule,
     MatIconModule,
     MatTableModule,

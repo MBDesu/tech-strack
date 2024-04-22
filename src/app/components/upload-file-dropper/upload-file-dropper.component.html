@@ -1,0 +1,9 @@
+<div class="drop-box">
+  <span class="file-dropper-content">
+    <button mat-icon-button (click)="fileUpload.click()">
+      <mat-icon>file_upload</mat-icon>
+    </button>
+    <input #fileUpload [hidden]="true" (change)="onChange($event)" type="file" [accept]="accept" />
+    <span>or drag file here</span>
+  </span>
+</div>

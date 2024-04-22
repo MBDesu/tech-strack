@@ -52,11 +52,29 @@ $light-theme: create-theme($type: light, $density: 0, $primary: matx.$m3-rose-pa
 // Include the default theme styles.
 html {
   @include mat.all-component-themes($dark-theme);
-  @include matx.color-variants-back-compat($dark-theme);
   @include get-component-colors($dark-theme);
   @include mat.typography-hierarchy($dark-theme, $back-compat: true);
-  @include matx.color-variants-back-compat($dark-theme);
   @include get-theme-props();
+
+  .surface-icon {
+    @include mat.icon-color($dark-theme, $color-variant: surface);
+  }
+
+  .primary-icon {
+    @include mat.icon-color($dark-theme, $color-variant: primary);
+  }
+
+  .secondary-icon {
+    @include mat.icon-color($dark-theme, $color-variant: secondary);
+  }
+
+  .tertiary-icon {
+    @include mat.icon-color($dark-theme, $color-variant: tertiary);
+  }
+
+  .error-icon {
+    @include mat.icon-color($dark-theme, $color-variant: error);
+  }
 
   &.strong-focus {
     @include mat.strong-focus-indicators-color($dark-theme);
@@ -65,14 +83,33 @@ html {
 
 .light-theme {
   @include mat.all-component-colors($light-theme);
-  @include matx.color-variants-back-compat($light-theme);
   @include mat.typography-hierarchy($light-theme, $back-compat: true);
   @include get-component-colors($light-theme);
-  @include matx.color-variants-back-compat($light-theme);
 
   &.strong-focus {
     @include mat.strong-focus-indicators-color($light-theme);
   }
+
+  .surface-icon {
+    @include mat.icon-color($light-theme, $color-variant: surface);
+  }
+
+  .primary-icon {
+    @include mat.icon-color($light-theme, $color-variant: primary);
+  }
+
+  .secondary-icon {
+    @include mat.icon-color($light-theme, $color-variant: secondary);
+  }
+
+  .tertiary-icon {
+    @include mat.icon-color($light-theme, $color-variant: tertiary);
+  }
+
+  .error-icon {
+    @include mat.icon-color($light-theme, $color-variant: error);
+  }
+
 }
 
 .strong-focus {
@@ -115,3 +152,4 @@ body {
 span.spacer {
   flex: 1 1 auto;
 }
+
