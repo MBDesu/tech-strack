@@ -18,7 +18,8 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "allowedCommonJsDependencies": [
-              "moment"
+              "moment",
+              "semver"
             ],
             "outputPath": "dist/tech-strack",
             "index": "src/index.html",
