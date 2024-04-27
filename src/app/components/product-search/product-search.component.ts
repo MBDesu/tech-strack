@@ -67,6 +67,7 @@ export class ProductSearchComponent implements OnInit, AfterViewInit {
       map(value => this._filter(value || '')),
     );
     this.productFormControl.addValidators(CustomValidators.isAutocompleteValue(this.products));
+    // console.log(this.products.filter((product) => !productCycleColumnMapping[product]));
   }
 
   ngAfterViewInit(): void {

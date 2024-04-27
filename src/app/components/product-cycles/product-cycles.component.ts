@@ -26,8 +26,8 @@ export class ProductCyclesComponent implements OnInit {
   @Input({ required: true }) eolDetails!: EndOfLifeDetails[];
   @Input({ required: true }) product!: string;
 
-  columnDefs: string[] = [];
-  defaultColumns = [
+  protected columnDefs: string[] = [];
+  protected defaultColumns = [
     'cycle-cycle',
     'cycle-supported-ios-versions',
     'cycle-supported-android-versions',
@@ -44,15 +44,15 @@ export class ProductCyclesComponent implements OnInit {
     'cycle-supported-jakarta-ee-versions',
     'cycle-latest',
   ];
-  isEolColumnMap: { [key: string]: string } = {
+  protected isEolColumnMap: { [key: string]: string } = {
     'cycle-support': 'support',
     'cycle-eol': 'eol',
     // 'extendedSupport',
   };
-  auxColumns: string[] = [];
-  productDataSource!: MatTableDataSource<EndOfLifeDetails>;
-  productMapping: ProductDefinition | undefined;
-  today = new Date();
+  protected auxColumns: string[] = [];
+  protected productDataSource!: MatTableDataSource<EndOfLifeDetails>;
+  protected productMapping: ProductDefinition | undefined;
+  protected today = new Date();
 
   ngOnInit(): void {
     this.productDataSource = new MatTableDataSource<EndOfLifeDetails>(this.eolDetails);
@@ -82,12 +82,23 @@ export class ProductCyclesComponent implements OnInit {
         });
       }
     }
+    this.productDataSource.filterPredicate = (data: EndOfLifeDetails, filter: string) => {
+      if (!filter) return true;
+      const filterVal = filter === 'true';
+      return this.isEol(data) === filterVal;
+    };
+    this.productDataSource.filter = 'false';
+  }
+
+  protected toggleFilter = (): void => {
+    const isActive = this.productDataSource.filter === 'false';
+    this.productDataSource.filter = isActive ? '' : 'false';
   }
 
   private makeKebab = (str: string) => str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
 
   // TODO: refactor this
-  formatTimeAgo = (date: string | boolean, prefix?: boolean, unavailable?: boolean, invert?: boolean, goodText = 'Yes', badText = 'No'): string => {
+  protected formatTimeAgo = (date: string | boolean, prefix?: boolean, unavailable?: boolean, invert?: boolean, goodText = 'Yes', badText = 'No'): string => {
     if (typeof date === 'boolean') return this.formatDateOrBoolean(date, unavailable, invert, goodText, badText);
 
     const momentDate = moment(date);
@@ -101,10 +112,10 @@ export class ProductCyclesComponent implements OnInit {
     }
     return prefix ? 'Ends today' : this.formatDateOrBoolean(date, unavailable, invert);
 
-  };
+  }
 
   // TODO: refactor this
-  formatDateOrBoolean = (date: string | boolean, unavailable?: boolean, invert?: boolean, goodText = 'Yes', badText = 'No'): string => {
+  protected formatDateOrBoolean = (date: string | boolean, unavailable?: boolean, invert?: boolean, goodText = 'Yes', badText = 'No'): string => {
     if (typeof date === 'boolean') {
       if (!unavailable) {
         if (!invert) {
@@ -117,10 +128,10 @@ export class ProductCyclesComponent implements OnInit {
     return date ?
         formatDate(date, 'd MMM y', Intl.NumberFormat().resolvedOptions().locale)
         : '';
-  };
+  }
 
   // TODO: refactor this
-  resolveDateClass(date: string | boolean, unavailable?: boolean, invert?: boolean): string {
+  protected resolveDateClass(date: string | boolean, unavailable?: boolean, invert?: boolean): string {
     if (typeof date === 'boolean') {
       if (!unavailable) {
         if (!invert) {
@@ -153,6 +164,10 @@ export class ProductCyclesComponent implements OnInit {
         ) === 'is-past';
       })
       .every((isPast: boolean) => isPast);
-  };
+  }
+
+  protected hasEolVersions = (cycles: EndOfLifeDetails[]): boolean => {
+    return cycles.some((cycle) => this.isEol(cycle));
+  }
 
 }

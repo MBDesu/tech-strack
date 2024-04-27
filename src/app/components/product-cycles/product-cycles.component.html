@@ -213,3 +213,16 @@
     </mat-table>
   }
 </div>
+@if (hasEolVersions(eolDetails)) {
+  <div class="show-unsupported-row">
+    <button mat-button (click)="toggleFilter()">
+      @if (eolDetails.length - productDataSource.filteredData.length > 0) {
+        Show {{eolDetails.length - productDataSource.filteredData.length}} unmaintained releases
+          &nbsp;<mat-icon>expand_more</mat-icon>
+      } @else {
+        Hide unmaintained releases
+          &nbsp;<mat-icon>expand_less</mat-icon>
+      }
+    </button>
+  </div>
+}

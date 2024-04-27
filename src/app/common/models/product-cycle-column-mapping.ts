@@ -1072,6 +1072,26 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'coldfusion': {
+    name: 'Adobe ColdFusion',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Core Support',
+      },
+      'cycle-extended-support': {
+        header: 'Extended Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'composer': {
     name: 'Composer',
     columns: {
@@ -1742,6 +1762,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
       'cycle-eol': {
         header: 'Security Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
+  'fluent-bit': {
+    name: 'Fluent Bit',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support',
       },
       'cycle-latest': {
         header: 'Latest',
@@ -2649,6 +2686,23 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'kubernetes-csi-node-driver-registrar': {
+    name: 'Kubernetes CSI Node Driver Registrar',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-eol': {
+        header: 'Support',
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'laravel': {
     name: 'Laravel',
     columns: {
@@ -3253,7 +3307,7 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
-  'nexcloud': {
+  'nextcloud': {
     name: 'Nextcloud',
     columns: {
       'cycle-cycle': {
@@ -4761,6 +4815,31 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       },
     },
   },
+  'shopware': {
+    name: 'Shopware',
+    columns: {
+      'cycle-cycle': {
+        header: 'Release',
+      },
+      'cycle-release-date': {
+        header: 'Released',
+      },
+      'cycle-support': {
+        header: 'Active Support',
+        invert: true,
+      },
+      'cycle-eol': {
+        header: 'Security Support',
+      },
+      'cycle-extended-support': {
+        header: 'Commercial Support',
+        unavailable: true,
+      },
+      'cycle-latest': {
+        header: 'Latest',
+      },
+    },
+  },
   'silverstripe': {
     name: 'Silverstripe CMS',
     columns: {
@@ -5110,8 +5189,8 @@ export const productCycleColumnMapping: ProductColumnDefinition = {
       'cycle-aux-min-java-version': undefined,
     },
   },
-  'traefic': {
-    name: 'Traefic',
+  'traefik': {
+    name: 'Traefik',
     columns: {
       'cycle-cycle': {
         header: 'Release',

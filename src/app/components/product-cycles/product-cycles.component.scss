@@ -58,7 +58,6 @@
 }
 
 .mat-mdc-table {
-  max-height: 264px;
   overflow: auto;
 }
 
@@ -96,4 +95,11 @@ td:last-child {
 .strike {
   text-decoration: line-through;
   font-style: italic;
+}
+
+.show-unsupported-row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: var(--mat-app-background-color);
 }
