@@ -40,7 +40,9 @@ $light-theme: create-theme($type: light, $density: 0, $primary: matx.$m3-rose-pa
   @include get-theme-color(--mdc-elevated-card-container-color, $theme, surface-container);
   @include get-theme-color(--mat-expansion-container-background-color, $theme, surface-container);
   @include get-theme-color(--mat-sidenav-container-background-color, $theme, surface-container);
-  @include get-theme-color(--mat-toolbar-container-background-color, $theme, surface-container);
+  @include get-theme-color(--mat-toolbar-container-background-color, $theme, primary-container);
+  @include get-theme-color(--mat-toolbar-container-text-color, $theme, primary);
+  @include get-theme-color(--mdc-switch-selected-icon-color, $theme, primary);
   @include get-theme-color(--mat-menu-container-color, $theme, surface-container-highest);
 }
 
@@ -79,6 +81,13 @@ html {
   &.strong-focus {
     @include mat.strong-focus-indicators-color($dark-theme);
   }
+
+  .app-toolbar {
+    .mat-mdc-icon-button {
+      @include get-theme-color(--mdc-icon-button-icon-color, $dark-theme, primary)
+    }
+  }
+
 }
 
 .light-theme {
@@ -108,6 +117,12 @@ html {
 
   .error-icon {
     @include mat.icon-color($light-theme, $color-variant: error);
+  }
+
+  .app-toolbar {
+    .mat-mdc-icon-button {
+      @include get-theme-color(--mdc-icon-button-icon-color, $light-theme, primary);
+    }
   }
 
 }

@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 $app-content-padding: 1em;
 $app-total-padding: 2 * $app-content-padding;
 $app-content-height-desktop: calc(100vh - $app-total-padding - var(--mat-toolbar-standard-height));
